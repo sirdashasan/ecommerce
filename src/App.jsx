@@ -4,10 +4,12 @@ import Shop from "./pages/Shop";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Header from "./layout/Header";
 
 function App() {
   return (
     <div>
+      <Header />
       <Switch>
         <Route path="/" exact>
           <Home />
