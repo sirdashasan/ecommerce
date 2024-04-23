@@ -26,11 +26,12 @@ const HeaderMenuItems = () => {
           </a>
           <a
             href="#"
-            className="hidden md:block font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
+            className="hidden md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
           </a>
+
           <a
             href="#"
             className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
