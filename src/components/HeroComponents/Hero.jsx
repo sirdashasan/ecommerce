@@ -75,7 +75,8 @@ const Hero = () => {
       <div className="hidden group-hover:block absolute top-[50%] -translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size="2x" />
       </div>
-      <div className="flex top-4 justify-center py-2">
+      {/* Navigation Dots */}
+      <div className="absolute bottom-16 w-full flex justify-center z-10">
         {slides.map((slide, slideIndex) => (
           <div
             key={slideIndex}
