@@ -10,23 +10,46 @@ const HeaderMenuItems = () => {
           <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
             Home
           </a>
+          {/* Sadece Mobilde görünecek */}
           <a
             href="#"
-            className="font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
+            className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
+          >
+            Product
+          </a>
+          {/* Sadece Mobilde görünecek */}
+          <a
+            href="#"
+            className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
+          >
+            Pricing
+          </a>
+          <a
+            href="#"
+            className="hidden md:block font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
           </a>
-          <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
+          <a
+            href="#"
+            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+          >
             About
           </a>
-          <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
+          <a
+            href="#"
+            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+          >
             Blog
           </a>
           <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
             Contact
           </a>
-          <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
+          <a
+            href="#"
+            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+          >
             Pages
           </a>
         </div>

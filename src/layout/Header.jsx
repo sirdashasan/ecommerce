@@ -1,7 +1,7 @@
 import React from "react";
-import HeaderLogin from "../components/HeaderLogin";
-import HeaderMenuItems from "../components/HeaderMenuItems";
-import HeaderLogo from "../components/HeaderLogo";
+import HeaderLogin from "../components/HeaderComponents/HeaderLogin";
+import HeaderMenuItems from "../components/HeaderComponents/HeaderMenuItems";
+import HeaderLogo from "../components/HeaderComponents/HeaderLogo";
 
 const Header = () => {
   return (

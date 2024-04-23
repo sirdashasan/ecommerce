@@ -15,25 +15,25 @@ const HeaderLogin = () => {
     <div>
       <div className="flex items-center justify-end">
         <div className="flex items-center space-x-6">
-          <a href="#" className="hidden md:flex items-center text-[#23A6F0]">
+          <a href="#" className="hidden md:flex items-center md:text-[#23A6F0]">
             <FontAwesomeIcon icon={farUser} size="xs" />
             <span className="ml-1 font-bold text-sm">Login / Register</span>
           </a>
-          <a href="#" className="text-[#23A6F0]">
+          <a href="#" className="text-[#252B42] md:text-[#23A6F0]">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="sm" />
-          </a>
-          <a href="#" className="text-[#23A6F0] flex items-center">
-            <FontAwesomeIcon icon={faShoppingCart} size="sm" />
-            <span className="hidden md:inline ml-1 text-xs">1</span>
-          </a>
-          <a href="#" className="hidden md:flex items-center text-[#23A6F0]">
-            <FontAwesomeIcon icon={farHeart} size="sm" />
-            <span className="ml-1 text-xs">1</span>
           </a>
           <a
             href="#"
-            className="md:hidden md:flex  items-center text-[#23A6F0]"
+            className="text-[#252B42] md:text-[#23A6F0] flex items-center"
           >
+            <FontAwesomeIcon icon={faShoppingCart} size="sm" />
+            <span className="hidden md:inline ml-1 text-xs">1</span>
+          </a>
+          <a href="#" className="hidden md:flex items-center md:text-[#23A6F0]">
+            <FontAwesomeIcon icon={farHeart} size="sm" />
+            <span className="ml-1 text-xs">1</span>
+          </a>
+          <a href="#" className="md:hidden items-center text-[#252B42]">
             <FontAwesomeIcon icon={faBars} size="sm" />
           </a>
         </div>
