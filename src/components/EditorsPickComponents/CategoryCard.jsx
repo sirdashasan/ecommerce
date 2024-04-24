@@ -10,7 +10,7 @@ const CategoryCard = () => {
           Problems trying to resolve the conflict between
         </p>
       </div>
-      <div className="mb-6 max-w-sm mx-auto md:max-w-[800px] bg-white overflow-hidden mt-6 md:flex md:flex-row">
+      <div className="max-w-sm mx-auto md:max-w-[800px] bg-white overflow-hidden mt-6 md:flex md:flex-row">
         {/* Resim */}
         <div className="relative">
           <img
