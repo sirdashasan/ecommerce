@@ -6,6 +6,7 @@ import BestsellerProducts from "../components/FeaturedProducts/BestsellerProduct
 import Carousel2 from "../components/Carousel2";
 import Neural from "../components/NeuralComponents/Neural";
 import PracticeSection from "../components/PracticeAdvice/PracticeSection";
+import Footer from "../layout/Footer";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Carousel2 />
       <Neural />
       <PracticeSection />
+      <Footer />
     </div>
   );
 };

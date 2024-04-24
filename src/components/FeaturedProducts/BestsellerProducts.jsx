@@ -14,7 +14,7 @@ const BestsellerProducts = () => {
           Problems trying to resolve the conflict between
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 md:pl-72 md:pr-72">
+      <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 md:pl-72 md:pr-72 mb-16">
         <ProductCard />
         <ProductCard />
         <ProductCard />

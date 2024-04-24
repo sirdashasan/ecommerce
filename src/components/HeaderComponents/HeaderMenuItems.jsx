@@ -6,7 +6,7 @@ const HeaderMenuItems = () => {
   return (
     <div>
       <div className="flex justify-center md:flex items-center md:mx-16">
-        <div className="flex flex-col md:flex-row md:mx-6">
+        <div className="flex flex-col md:flex-row md:mx-6 font-sans">
           <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
             Home
           </a>
