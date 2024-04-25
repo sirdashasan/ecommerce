@@ -11,27 +11,27 @@ const Header = () => {
 
   return (
     <header className="bg-white w-full fixed top-0 z-10">
-      <nav className="container mx-auto px-6 py-3 lg:flex lg:justify-between lg:items-center">
-        <div className="flex justify-between items-center w-full lg:w-auto">
+      <nav className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
+        <div className="flex justify-between items-center w-full md:w-auto">
           <HeaderLogo />
           {/* Desktop'ta her zaman göster, mobilde sadece en üstteyken göster */}
-          <div className={`hidden lg:block ${isMobile && !atTop && "hidden"}`}>
+          <div className={`hidden md:block ${isMobile && !atTop && "hidden"}`}>
             <HeaderMenuItems />
           </div>
           {/* Mobil için Login/Register ve Sepet */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <HeaderLogin />
           </div>
         </div>
 
         {/* Masaüstü için Login/Register ve Sepet öğeleri */}
-        <div className="hidden lg:flex lg:items-center lg:justify-end">
+        <div className="hidden md:flex md:items-center md:justify-end">
           <HeaderLogin />
         </div>
 
         {/* Mobil için Menü öğeleri, sadece en üstteyken göster */}
         {isMobile && atTop && (
-          <div className="flex justify-center mt-3 lg:hidden">
+          <div className="flex justify-center mt-3 md:hidden">
             <HeaderMenuItems />
           </div>
         )}

@@ -4,26 +4,20 @@ import Shop from "./pages/Shop";
 import About from "./pages/About";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
     <div>
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/shop">
-          <Shop />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/blog">
-          <Blog />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
+        <Route path="/" exact component={Home} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/about" component={About} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
       </Switch>
     </div>
   );

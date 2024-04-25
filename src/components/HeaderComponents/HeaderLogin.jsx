@@ -9,16 +9,20 @@ import {
   faHeart as farHeart,
   faUser as farUser,
 } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const HeaderLogin = () => {
   return (
     <div>
       <div className="flex items-center justify-end">
         <div className="flex items-center space-x-6">
-          <a href="#" className="hidden md:flex items-center md:text-[#23A6F0]">
+          <Link
+            to="/login"
+            className="hidden md:flex items-center md:text-[#23A6F0]"
+          >
             <FontAwesomeIcon icon={farUser} size="xs" />
             <span className="ml-1 font-bold text-sm">Login / Register</span>
-          </a>
+          </Link>
           <a href="#" className="text-[#252B42] md:text-[#23A6F0]">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="sm" />
           </a>

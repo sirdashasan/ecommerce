@@ -1,15 +1,19 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const HeaderMenuItems = () => {
   return (
     <div>
       <div className="flex justify-center md:flex items-center md:mx-16">
         <div className="flex flex-col md:flex-row md:mx-6 font-sans">
-          <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
+          <Link
+            to="/"
+            className="font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+          >
             Home
-          </a>
+          </Link>
           {/* Sadece Mobilde görünecek */}
           <a
             href="#"
@@ -24,35 +28,38 @@ const HeaderMenuItems = () => {
           >
             Pricing
           </a>
-          <a
-            href="#"
+          <Link
+            to="/shop"
             className="hidden md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
-          </a>
+          </Link>
 
-          <a
-            href="#"
+          <Link
+            to="/about"
             className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             About
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/blog"
             className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             Blog
-          </a>
-          <a href="#" className="font-bold my-1 text-[#737373] md:mx-2 md:my-0">
+          </Link>
+          <Link
+            to="/contact"
+            className="font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+          >
             Contact
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/pages"
             className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             Pages
-          </a>
+          </Link>
         </div>
       </div>
     </div>

@@ -5,8 +5,15 @@ import {
   faChevronRight,
   faCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 
 const Hero = () => {
+  const history = useHistory();
+
+  const navigate = () => {
+    history.push("/shop");
+  };
+
   const slides = [
     {
       url: "/images/hero-image-2.jpg",
@@ -63,7 +70,10 @@ const Hero = () => {
           We know how large objects will act,
           <br className="hidden md:block" /> but things on a small scale.
         </p>
-        <button className="bg-[#2DC071] text-white py-4 px-16 rounded font-bold mt-16">
+        <button
+          className="bg-[#2DC071] text-white py-4 px-16 rounded font-bold mt-16"
+          onClick={navigate}
+        >
           SHOP NOW
         </button>
       </div>

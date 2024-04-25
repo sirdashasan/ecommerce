@@ -1,6 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const CategoryCard = () => {
+  const history = useHistory();
+
+  const navigateToMen = () => history.push("/shop/men");
+  const navigateToWomen = () => history.push("/shop/women");
+  const navigateToAccessories = () => history.push("/shop/accessories");
+  const navigateToKids = () => history.push("/shop/kids");
+
   return (
     <>
       {/* Başlık ve açıklama */}
@@ -12,32 +20,50 @@ const CategoryCard = () => {
       </div>
       <div className="max-w-sm mx-auto md:max-w-[800px] bg-white overflow-hidden mt-6 md:flex md:flex-row">
         {/* Resim */}
-        <div className="relative">
+        <div
+          className="relative"
+          onClick={navigateToMen}
+          style={{ cursor: "pointer" }}
+        >
           <img
             src="./images/category-card-men.jpg"
             alt="Men's Fashion"
             className="w-full h-[480px] md:h-[400px] md:w-[500px] object-cover"
           />
           {/* Buton */}
-          <button className="absolute left-16 right-0 bottom-8 w-[140px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4">
+          <button
+            className="absolute left-16 right-0 bottom-8 w-[140px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+            onClick={navigateToMen}
+          >
             MEN
           </button>
         </div>
 
-        <div className="relative mt-8 md:mt-0 md:ml-4">
+        <div
+          className="relative mt-8 md:mt-0 md:ml-4"
+          onClick={navigateToWomen}
+          style={{ cursor: "pointer" }}
+        >
           <img
             src="./images/category-card-women.jpg"
             alt="Women's Fashion"
             className="w-full h-[480px] md:h-[400px] md:w-[250px] object-cover"
           />
           {/* Buton */}
-          <button className="absolute left-32 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4">
+          <button
+            className="absolute left-32 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+            onClick={navigateToWomen}
+          >
             WOMEN
           </button>
         </div>
 
         <div className="md:flex md:flex-col md:ml-4">
-          <div className="relative mt-8 md:mt-0">
+          <div
+            className="relative mt-8 md:mt-0"
+            onClick={navigateToAccessories}
+            style={{ cursor: "pointer" }}
+          >
             <div className="overflow-hidden">
               <img
                 src="./images/category-card-accessories.jpg"
@@ -46,12 +72,19 @@ const CategoryCard = () => {
               />
             </div>
             {/* Buton */}
-            <button className="absolute left-8 right-0 bottom-8 w-[160px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4">
+            <button
+              className="absolute left-8 right-0 bottom-8 w-[160px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+              onClick={navigateToAccessories}
+            >
               ACCESSORIES
             </button>
           </div>
 
-          <div className="relative mt-8 md:mt-[10px]">
+          <div
+            className="relative mt-8 md:mt-[10px]"
+            onClick={navigateToKids}
+            style={{ cursor: "pointer" }}
+          >
             <div className="overflow-hidden">
               <img
                 src="./images/category-card-kids.jpg"
@@ -60,7 +93,10 @@ const CategoryCard = () => {
               />
             </div>
             {/* Buton */}
-            <button className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4">
+            <button
+              className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+              onClick={navigateToKids}
+            >
               KIDS
             </button>
           </div>
