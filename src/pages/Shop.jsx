@@ -10,6 +10,7 @@ import ShopCloths from "../components/ShopComponents/ShopCloths";
 import ShopFilter from "../components/ShopComponents/ShopFilter";
 import ShopFilterCards from "../components/ShopComponents/ShopFilterCards";
 import ShopPagination from "../components/ShopComponents/ShopPagination";
+import ShopBrands from "../components/ShopComponents/ShopBrands";
 
 const Shop = () => {
   let { path } = useRouteMatch(); // Dinamik yol tanımlamaları için
@@ -24,6 +25,7 @@ const Shop = () => {
           <ShopFilter />
           <ShopFilterCards />
           <ShopPagination />
+          <ShopBrands />
         </div>
       </div>
 
