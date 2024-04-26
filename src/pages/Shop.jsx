@@ -8,6 +8,8 @@ import Header from "../layout/Header";
 import ShopTitle from "../components/ShopComponents/ShopTitle";
 import ShopCloths from "../components/ShopComponents/ShopCloths";
 import ShopFilter from "../components/ShopComponents/ShopFilter";
+import ShopFilterCards from "../components/ShopComponents/ShopFilterCards";
+import ShopPagination from "../components/ShopComponents/ShopPagination";
 
 const Shop = () => {
   let { path } = useRouteMatch(); // Dinamik yol tanımlamaları için
@@ -20,6 +22,8 @@ const Shop = () => {
           <ShopTitle />
           <ShopCloths />
           <ShopFilter />
+          <ShopFilterCards />
+          <ShopPagination />
         </div>
       </div>
 

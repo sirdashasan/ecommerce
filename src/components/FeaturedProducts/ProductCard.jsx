@@ -3,13 +3,13 @@ import React from "react";
 const ProductCard = () => {
   return (
     <>
-      <div className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full">
+      <div className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full md:flex md:items-center md:flex-col">
         {/* Resim */}
         <div className="relative">
           <img
             src="./images/product-card-image.jpg"
             alt="Men's Fashion"
-            className="w-full h-[427px] md:h-[427px] md:w-[239px] object-cover"
+            className="flex justify-center w-full h-[427px] md:h-[427px] md:w-[239px] object-cover"
           />
         </div>
         <div className="pt-4 mt-4 text-center font-sans text-[#252B42]">
