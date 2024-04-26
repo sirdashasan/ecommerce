@@ -4,13 +4,25 @@ import Men from "./Men";
 import Women from "./Women";
 import Accessories from "./Accessories";
 import Kids from "./Kids";
+import Header from "../layout/Header";
+import ShopTitle from "../components/ShopComponents/ShopTitle";
+import ShopCloths from "../components/ShopComponents/ShopCloths";
+import ShopFilter from "../components/ShopComponents/ShopFilter";
 
 const Shop = () => {
-  let { path } = useRouteMatch(); // Dinamik yol tanımlamaları için useRouteMatch kullanılır
+  let { path } = useRouteMatch(); // Dinamik yol tanımlamaları için
 
   return (
     <div>
-      <h1>Shop</h1>
+      <div>
+        <Header />
+        <div className="mt-48 md:mt-10 md:mx-36">
+          <ShopTitle />
+          <ShopCloths />
+          <ShopFilter />
+        </div>
+      </div>
+
       <Switch>
         <Route path={`${path}/men`} component={Men} />
         <Route path={`${path}/women`} component={Women} />
