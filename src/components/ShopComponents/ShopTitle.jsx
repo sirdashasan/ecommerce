@@ -4,8 +4,8 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const ShopTitle = () => {
   return (
-    <div className="font-sans font-semibold flex flex-col md:flex md:flex-row md:justify-between md:mx-8">
-      <div className="text-[#252B42] text-lg flex justify-center mt-6">
+    <div className="font-sans font-semibold flex flex-col md:flex md:flex-row md:justify-between md:mx-12">
+      <div className="text-[#252B42] text-lg flex justify-center mt-52 md:mt-6">
         <h2>Shop</h2>
       </div>
       <div className="text-xs flex flex-row items-center gap-2 justify-center mt-12 md:mt-6">

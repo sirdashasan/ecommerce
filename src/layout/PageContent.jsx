@@ -7,6 +7,7 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import About from "../pages/About";
+import ProductDetail from "../pages/ProductDetail";
 
 const PageContent = () => {
   return (
@@ -19,6 +20,7 @@ const PageContent = () => {
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/product-detail" component={ProductDetail} />
       </Switch>
     </div>
   );

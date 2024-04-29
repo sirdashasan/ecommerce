@@ -15,6 +15,7 @@ const HeaderMenuItems = () => {
             Home
           </Link>
           {/* Sadece Mobilde görünecek */}
+          {/*
           <a
             href="#"
             className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
@@ -22,15 +23,16 @@ const HeaderMenuItems = () => {
             Product
           </a>
           {/* Sadece Mobilde görünecek */}
+          {/*         
           <a
             href="#"
             className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
           >
             Pricing
-          </a>
+          </a>  */}
           <Link
             to="/shop"
-            className="hidden md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
+            className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
@@ -38,13 +40,13 @@ const HeaderMenuItems = () => {
 
           <Link
             to="/about"
-            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             About
           </Link>
           <Link
             to="/blog"
-            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             Blog
           </Link>
@@ -56,7 +58,7 @@ const HeaderMenuItems = () => {
           </Link>
           <Link
             to="/pages"
-            className="hidden md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
             Pages
           </Link>
