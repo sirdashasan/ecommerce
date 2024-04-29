@@ -14,7 +14,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-3 md:flex md:justify-between md:items-center">
         <div className="flex justify-between items-center w-full md:w-auto">
           <HeaderLogo />
-          {/* Desktop'ta her zaman göster, mobilde sadece en üstteyken göster */}
+          {/* Desktop'ta her zaman göster, mobilde sadece en üstteyken göster. */}
           <div className={`hidden md:block ${isMobile && !atTop && "hidden"}`}>
             <HeaderMenuItems />
           </div>
