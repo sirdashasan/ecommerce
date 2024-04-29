@@ -1,9 +1,14 @@
 import React from "react";
+import ContactUs from "../components/ContactComponents/ContactUs";
+import ContactVisit from "../components/ContactComponents/ContactVisit";
 
 const Contact = () => {
   return (
     <div>
-      <h1>contact</h1>
+      <div className="mt-64 md:mt-0 md:mx-12">
+        <ContactUs />
+        <ContactVisit />
+      </div>
     </div>
   );
 };
