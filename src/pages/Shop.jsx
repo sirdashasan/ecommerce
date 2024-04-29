@@ -19,7 +19,6 @@ const Shop = () => {
   return (
     <div>
       <div>
-        <Header />
         <div className="mt-48 md:mt-10 md:mx-36">
           <ShopTitle />
           <ShopCloths />
@@ -28,7 +27,6 @@ const Shop = () => {
           <ShopPagination />
           <ShopBrands />
         </div>
-        <Footer />
       </div>
 
       <Switch>

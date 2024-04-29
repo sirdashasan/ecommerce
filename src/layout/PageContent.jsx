@@ -1,20 +1,25 @@
 import React from "react";
-import Hero from "../components/HeroComponents/Hero";
-import CategoryCard from "../components/EditorsPickComponents/CategoryCard";
-import BestsellerProducts from "../components/FeaturedProducts/BestsellerProducts";
-import Carousel2 from "../components/Carousel2";
-import Neural from "../components/NeuralComponents/Neural";
-import PracticeSection from "../components/PracticeAdvice/PracticeSection";
+import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import Home from "../pages/Home";
+import Shop from "../pages/Shop";
+import Blog from "../pages/Blog";
+import Contact from "../pages/Contact";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import About from "../pages/About";
 
 const PageContent = () => {
   return (
     <div>
-      <Hero />
-      <CategoryCard />
-      <BestsellerProducts />
-      <Carousel2 />
-      <Neural />
-      <PracticeSection />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/shop" component={Shop} />
+        <Route path="/about" component={About} />
+        <Route path="/blog" component={Blog} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+      </Switch>
     </div>
   );
 };
