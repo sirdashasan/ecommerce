@@ -22,26 +22,6 @@ const TeamPersonCard = () => {
       title: "Full Stack Dev.",
       img: "https://media.licdn.com/dms/image/D4D03AQGyK8cumwgvFQ/profile-displayphoto-shrink_800_800/0/1713527182328?e=1720051200&v=beta&t=PXKZY2tt0SjKepMtPGmWnNT0rTv1VD5x4XRPOjS8C1A",
     },
-    {
-      name: "Erhan Fırat",
-      title: "Software Consultant",
-      img: "https://media.licdn.com/dms/image/D4D03AQHHikjSDQq9xw/profile-displayphoto-shrink_800_800/0/1708951317641?e=1720051200&v=beta&t=rerI4IakEFrJmiHVx6AWgjZsdUaNYbujGVbeMHTOWzA",
-    },
-    {
-      name: "Gökhan Özdemir",
-      title: "Developer / PM",
-      img: "https://media.licdn.com/dms/image/C4D03AQE8uHbxXDXfmw/profile-displayphoto-shrink_800_800/0/1635783306921?e=1720051200&v=beta&t=w060HP238w-3WSIwE7hT4n-zKVbltmFpGClbX0-DNLM",
-    },
-    {
-      name: "Hasan Sırdaş",
-      title: "Full Stack Dev.",
-      img: "https://media.licdn.com/dms/image/D4D03AQH3SuVX0xKCgw/profile-displayphoto-shrink_800_800/0/1700637350197?e=1720051200&v=beta&t=nrqQdUREqqHlgIY0EZbhl2zE1EgFS5dyeGWWsadWejY",
-    },
-    {
-      name: "Taylan Can Köse",
-      title: "Full Stack Dev.",
-      img: "https://media.licdn.com/dms/image/D4D03AQGyK8cumwgvFQ/profile-displayphoto-shrink_800_800/0/1713527182328?e=1720051200&v=beta&t=PXKZY2tt0SjKepMtPGmWnNT0rTv1VD5x4XRPOjS8C1A",
-    },
   ];
 
   return (
