@@ -57,10 +57,10 @@ const HeaderMenuItems = () => {
             Contact
           </Link>
           <Link
-            to="/pages"
+            to="/team"
             className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
           >
-            Pages
+            Team
           </Link>
         </div>
       </div>
