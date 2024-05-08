@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../FeaturedProducts/ProductCard";
+import ProductCard from "../HomeComponents/FeaturedProducts/ProductCard";
 
 const ShopFilterCards = () => {
   return (

@@ -8,7 +8,7 @@ import ShopBrands from "../components/ShopComponents/ShopBrands";
 
 const ProductDetail = () => {
   return (
-    <div className="md:mx-12 mx-12">
+    <div className="md:mx-12 mx-12 ">
       <div>
         <ShopTitle />
       </div>
@@ -22,7 +22,7 @@ const ProductDetail = () => {
       <div className="md:mx-12">
         <ProductDetailBestsellerProducts />
       </div>
-      <div className="md:mx-28 mt-6 md:mt-12">
+      <div className="md:mx-12 md:mr-28 mt-6 md:mt-12">
         <ShopBrands />
       </div>
     </div>

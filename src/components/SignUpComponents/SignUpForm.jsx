@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import axiosInstance from "./axiosInstance";
+import axiosInstance from "../../api/axiosInstance";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function SignUpForm() {
   const history = useHistory();
@@ -54,7 +53,7 @@ function SignUpForm() {
       const response = await axiosInstance.post("/signup", formattedData);
       console.log(response.data);
 
-      // Başarılı bir şekilde form gönderimi yapıldıktan sonra kullanıcıyı yönlendir
+      // Başarılıysa logine yönlendir
       history.push("/login", {});
       toast.success(
         "Hesabınızı etkinleştirmek için e-postadaki bağlantıya tıklayınız!"
@@ -133,6 +132,8 @@ function SignUpForm() {
         {errors.password && (
           <span className="text-red-500 text-xs">
             {errors.password.message}
+            Password min 8 character including numbers, lower case, upper case
+            and special chars
           </span>
         )}
       </div>

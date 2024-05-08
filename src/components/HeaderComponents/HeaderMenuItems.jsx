@@ -14,22 +14,7 @@ const HeaderMenuItems = () => {
           >
             Home
           </Link>
-          {/* Sadece Mobilde görünecek */}
-          {/*
-          <a
-            href="#"
-            className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
-          >
-            Product
-          </a>
-          {/* Sadece Mobilde görünecek */}
-          {/*         
-          <a
-            href="#"
-            className="font-bold my-1 text-[#737373] md:hidden md:mx-2 md:my-0"
-          >
-            Pricing
-          </a>  */}
+
           <Link
             to="/shop"
             className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
