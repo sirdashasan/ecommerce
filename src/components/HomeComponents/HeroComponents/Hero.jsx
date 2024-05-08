@@ -82,7 +82,7 @@ const Hero = () => {
         <FontAwesomeIcon icon={faChevronLeft} onClick={prevSlide} size="2x" />
       </div>
       {/* Right Arrow */}
-      <div className="hidden group-hover:block absolute top-[50%] -translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+      <div className="hidden group-hover:block absolute top-[50%] -translate-y-[-50%] right-5 md:right-[2%] lg:right-[2%] xl:right-[2%] text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
         <FontAwesomeIcon icon={faChevronRight} onClick={nextSlide} size="2x" />
       </div>
       {/* Navigation Dots */}

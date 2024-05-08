@@ -9,20 +9,67 @@ import {
   faHeart as farHeart,
   faUser as farUser,
 } from "@fortawesome/free-regular-svg-icons";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import gravatar from "gravatar";
+import { logoutUser } from "../../store/thunks/authThunks";
 
 const HeaderLogin = () => {
+  const user = useSelector((state) => state.client.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser()); // Redux'taki oturumu sonlandır
+    history.push("/login");
+  };
+
+  console.log(user);
+
   return (
     <div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end font-sans">
         <div className="flex items-center space-x-6">
-          <Link
-            to="/login"
-            className="hidden md:flex items-center md:text-[#23A6F0]"
-          >
-            <FontAwesomeIcon icon={farUser} size="xs" />
-            <span className="ml-1 font-bold text-sm">Login / Register</span>
-          </Link>
+          <div className="md:flex md:items-center md:flex-wrap">
+            {user?.name ? (
+              <div className="flex items-center md:text-[#23A6F0]">
+                <img
+                  src={gravatar.url(user.email, {
+                    s: "100",
+                    r: "pg",
+                    d: "identicon",
+                  })}
+                  alt={user.name}
+                  className="rounded-full w-6 h-6 mr-1"
+                />
+                <span className="ml-1 font-semibold">{user.name} /</span>
+              </div>
+            ) : (
+              <Link
+                to="/login"
+                className="hidden md:flex items-center md:text-[#23A6F0]"
+              >
+                <FontAwesomeIcon icon={farUser} size="xs" />
+                <span className="ml-1 font-bold text-sm">Login /</span>
+              </Link>
+            )}
+            {!user && (
+              <Link
+                to="/register"
+                className="hidden md:flex items-center md:text-[#23A6F0]"
+              >
+                <span className="ml-1 font-bold text-sm">Register</span>
+              </Link>
+            )}
+            {user && (
+              <button
+                onClick={handleLogout}
+                className="hidden md:flex items-center md:text-[#23A6F0] cursor-pointer ml-1"
+              >
+                Logout
+              </button>
+            )}
+          </div>
           <a href="#" className="text-[#252B42] md:text-[#23A6F0]">
             <FontAwesomeIcon icon={faMagnifyingGlass} size="sm" />
           </a>

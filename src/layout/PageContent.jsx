@@ -10,12 +10,10 @@ import About from "../pages/About";
 import ProductDetail from "../pages/ProductDetail";
 import Team from "../pages/Team";
 import SignUp from "../pages/SignUp";
-import { ToastContainer } from "react-toastify";
 
 const PageContent = () => {
   return (
     <div>
-      <ToastContainer />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/shop" component={Shop} />
@@ -23,8 +21,7 @@ const PageContent = () => {
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/signup" component={SignUp} />
+        <Route path="/register" component={SignUp} />
         <Route path="/product-detail" component={ProductDetail} />
         <Route path="/team" component={Team} />
       </Switch>

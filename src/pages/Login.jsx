@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import LoginForm from "../components/LoginComponents/LoginForm";
 
 const Login = () => {
   return (
     <div>
-      <div>Login</div>
-      <Link to="/signup">Kayıt Ol</Link>
+      <div className="mt-48 mx-12 md:mt-12">
+        <LoginForm />
+      </div>
     </div>
   );
 };

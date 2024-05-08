@@ -1,11 +1,11 @@
 import React from "react";
 
-import Hero from "../components/HeroComponents/Hero";
-import CategoryCard from "../components/EditorsPickComponents/CategoryCard";
-import BestsellerProducts from "../components/FeaturedProducts/BestsellerProducts";
-import Carousel2 from "../components/Carousel2";
-import Neural from "../components/NeuralComponents/Neural";
-import PracticeSection from "../components/PracticeAdvice/PracticeSection";
+import Hero from "../components/HomeComponents/HeroComponents/Hero";
+import CategoryCard from "../components/HomeComponents/EditorsPickComponents/CategoryCard";
+import BestsellerProducts from "../components/HomeComponents/FeaturedProducts/BestsellerProducts";
+import Carousel2 from "../components/HomeComponents/Carousel2";
+import Neural from "../components/HomeComponents/NeuralComponents/Neural";
+import PracticeSection from "../components/HomeComponents/PracticeAdvice/PracticeSection";
 
 const Home = () => {
   return (

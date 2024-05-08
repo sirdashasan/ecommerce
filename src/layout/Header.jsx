@@ -6,7 +6,7 @@ import HeaderLogo from "../components/HeaderComponents/HeaderLogo";
 const Header = () => {
   return (
     <header className="bg-white w-full top-0 z-10 md:flex md:items-center">
-      <nav className="container mx-auto px-6 md:pb-6 h-16 md:h-20 md:flex md:justify-between md:items-center">
+      <nav className="container mx-auto px-6 md:pb-6 h-16 md:h-18 md:my-2 md:flex md:justify-between md:items-center">
         <div className="flex justify-between items-center w-full md:w-auto">
           <HeaderLogo />
           {/* Desktop'ta her zaman göster, mobilde sadece en üstteyken göster */}
