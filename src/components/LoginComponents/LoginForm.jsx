@@ -21,10 +21,6 @@ const LoginForm = () => {
   const onSubmit = (data) => {
     try {
       dispatch(handleLogin(data));
-      if (rememberMe && user?.token) {
-        localStorage.setItem("token", JSON.stringify(user?.token));
-        history.push("/");
-      }
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +28,7 @@ const LoginForm = () => {
 
   if (!loading) {
     if (rememberMe && user?.token) {
-      localStorage.setItem("credentials", JSON.stringify(user?.token));
+      localStorage.setItem("token", JSON.stringify(user?.token));
       if (history.length > 1) history.goBack();
       else history.push("/");
     }

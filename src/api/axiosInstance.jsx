@@ -1,7 +1,20 @@
 import axios from "axios";
 
-const instance = axios.create({
+const axiosInstance = axios.create({
   baseURL: "https://workintech-fe-ecommerce.onrender.com",
 });
 
-export default instance;
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    if (token) {
+      axiosInstance.defaults.headers.common["Authorization"] = token;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export default axiosInstance;
