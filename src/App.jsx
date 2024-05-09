@@ -1,19 +1,26 @@
+import { useDispatch } from "react-redux";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
 import PageContent from "./layout/PageContent";
-import { Provider } from "react-redux";
-import store from "./store/store";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { verifyToken } from "./store/thunks/authThunks";
+import { useEffect } from "react";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(verifyToken());
+  }, []);
+
   return (
-    <Provider store={store}>
+    <>
       <Header />
       <PageContent />
       <Footer />
       <ToastContainer />
-    </Provider>
+    </>
   );
 }
 
