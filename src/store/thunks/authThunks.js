@@ -36,7 +36,7 @@ export const logoutUser = () => async (dispatch) => {
     dispatch(logoutSuccess());
     toast.success("Successfully logged out.");
   } catch (error) {
-    console.error("Logout error:", error); // Hata durumunda consola log at
+    console.error("Logout error:", error);
     dispatch(logoutFailure(error.message));
     toast.error("Logout failed. Please try again.");
   }
