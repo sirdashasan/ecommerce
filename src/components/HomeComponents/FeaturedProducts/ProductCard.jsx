@@ -13,19 +13,6 @@ const ProductCard = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <div
-        className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full md:flex md:items-center md:flex-col "
-        onClick={handleClick}
-      >
-        {/* Resim */}
-        <div className="relative">
-          <img
-            src="./images/product-card-image.jpg"
-            alt="Product-image"
-            className="flex justify-center w-full h-[427px] md:h-[427px] md:w-[239px] object-cover cursor-pointer"
-          />
-=======
       {fetchState === "FETCHING" && (
         <div className="flex justify-center items-center">
           <svg
@@ -49,7 +36,6 @@ const ProductCard = () => {
             ></path>
           </svg>
           <span>Fetching products...</span>
->>>>>>> feature/develop
         </div>
       )}
       {productList.map((product) => (
