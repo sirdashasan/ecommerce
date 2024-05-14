@@ -3,6 +3,8 @@ export const SET_ROLES = "SET_ROLES";
 export const SET_THEME = "SET_THEME";
 export const SET_LANGUAGE = "SET_LANGUAGE";
 export const SET_TOKEN = "SET_TOKEN"; // yeni
+export const CLEAR_USER = "CLEAR_USER";
+export const CLEAR_TOKEN = "CLEAR_TOKEN";
 
 export const setUser = (user) => ({
   type: SET_USER,
@@ -30,9 +32,9 @@ export const setToken = (token) => ({
 });
 
 export const clearUser = () => ({
-  type: "CLEAR_USER",
+  type: CLEAR_USER,
 });
 
 export const clearToken = () => ({
-  type: "CLEAR_TOKEN",
+  type: CLEAR_TOKEN,
 });

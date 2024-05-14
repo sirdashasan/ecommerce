@@ -5,7 +5,7 @@ const initialState = {
   roles: [],
   theme: "",
   language: "tr",
-  token: null, // yeni
+  token: null,
   loading: false,
   error: null,
 };
@@ -17,6 +17,8 @@ import {
   SET_THEME,
   SET_LANGUAGE,
   SET_TOKEN,
+  CLEAR_USER,
+  CLEAR_TOKEN,
 } from "../actions/clientActions";
 
 const clientReducer = (state = initialState, action) => {
@@ -58,12 +60,12 @@ const clientReducer = (state = initialState, action) => {
         ...state,
         token: action.payload,
       };
-    case "CLEAR_USER":
+    case CLEAR_USER:
       return {
         ...state,
         user: null,
       };
-    case "CLEAR_TOKEN":
+    case CLEAR_TOKEN:
       return {
         ...state,
         token: null,

@@ -1,19 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShopClothsCard = () => {
+  const categories = useSelector((state) => state.product.categories);
+
+  // Kategorileri rating değerine göre büyükten küçüğe sırala
+  const sortedCategories = categories.sort((a, b) => b.rating - a.rating);
+
+  // En yüksek 5 ratinge sahip kategorileri al
+  const top5Categories = sortedCategories.slice(0, 5);
+
+  console.log(top5Categories);
+
   return (
-    <div>
-      <div className="relative flex justify-center items-center  ">
-        <span className="absolute text-center text-white text-lg font-bold py-1 px-3 rounded-sm font-sans ">
-          <p>CLOTHS</p>
-          <p className="mt-6">5 Items</p>
-        </span>
-        <img
-          className="w-[332px] h-[300px] md:w-[210px] md:h-[210px] object-cover  "
-          src="/images/hero-image-2.jpg"
-          alt="Sample Image"
-        />
-      </div>
+    <div className="flex flex-wrap">
+      {top5Categories.map((category, index) => (
+        <div key={category.id} className="w-1/5 p-2">
+          <div className="relative flex justify-center items-center">
+            <span className="absolute text-center text-white text-lg font-bold py-1 px-3 rounded-sm font-sans">
+              <p>{category.title}</p>
+              <p className="mt-6">{category.rating}</p>
+            </span>
+            <img
+              className="w-[332px] h-[300px] md:w-[210px] md:h-[210px] object-cover"
+              src={category.img}
+              alt={category.title}
+            />
+          </div>
+          {/* Eğer son kategori değilse, bir boşluk bırak */}
+          {index !== top5Categories.length - 1 && <div className="mt-6"></div>}
+        </div>
+      ))}
     </div>
   );
 };

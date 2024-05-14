@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const HeaderMenuItems = () => {
+  const dispatch = useDispatch();
+  const categories = useSelector((state) => state.product.categories);
+
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const womenCategories = categories.filter((category) => category.id <= 8);
+  const menCategories = categories.filter((category) => category.id > 8);
+
   return (
     <div>
       <div className="flex justify-center md:flex items-center md:mx-16">
@@ -15,13 +29,55 @@ const HeaderMenuItems = () => {
             Home
           </Link>
 
-          <Link
-            to="/shop"
-            className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0"
+          <div
+            className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer"
+            onClick={() => {
+              if (window.location.pathname !== "/shop") {
+                window.location.href = "/shop";
+              } else {
+                toggleDropdown();
+              }
+            }}
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
-          </Link>
+          </div>
+
+          {showDropdown && (
+            <div
+              ref={dropdownRef}
+              className="absolute mt-6 ml-20 bg-white shadow-md z-10 flex"
+            >
+              <div className="w-1/2">
+                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
+                  Kadın
+                </div>
+                {womenCategories.map((category) => (
+                  <Link
+                    key={category.id}
+                    to={`/shop/${category.gender}/${category.code}`}
+                    className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
+              <div className="w-1/2">
+                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
+                  Erkek
+                </div>
+                {menCategories.map((category) => (
+                  <Link
+                    key={category.id}
+                    to={`/shop/${category.gender}/${category.code}`}
+                    className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <Link
             to="/about"

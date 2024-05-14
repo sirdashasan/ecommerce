@@ -16,6 +16,7 @@ import { logoutUser } from "../../store/thunks/authThunks";
 
 const HeaderLogin = () => {
   const user = useSelector((state) => state.client.user);
+  console.log(user);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -23,8 +24,6 @@ const HeaderLogin = () => {
     dispatch(logoutUser()); // Redux'taki oturumu sonlandır
     history.push("/login");
   };
-
-  console.log(user);
 
   return (
     <div>
@@ -53,15 +52,14 @@ const HeaderLogin = () => {
                 <span className="ml-1 font-bold text-sm">Login /</span>
               </Link>
             )}
-            {!user && (
+            {!user?.name ? (
               <Link
                 to="/register"
                 className="hidden md:flex items-center md:text-[#23A6F0]"
               >
                 <span className="ml-1 font-bold text-sm">Register</span>
               </Link>
-            )}
-            {user && (
+            ) : (
               <button
                 onClick={handleLogout}
                 className="hidden md:flex items-center md:text-[#23A6F0] cursor-pointer ml-1"
