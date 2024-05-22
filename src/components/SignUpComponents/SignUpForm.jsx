@@ -49,9 +49,8 @@ function SignUpForm() {
           role_id: roles.find((role) => role.name === selectedRole)?.id,
         };
       }
-      console.log("Form Data:", formattedData);
+
       const response = await axiosInstance.post("/signup", formattedData);
-      console.log(response.data);
 
       // Başarılıysa logine yönlendir
       history.push("/login", {});

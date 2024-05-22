@@ -16,7 +16,6 @@ import { logoutUser } from "../../store/thunks/authThunks";
 
 const HeaderLogin = () => {
   const user = useSelector((state) => state.client.user);
-  console.log(user);
   const history = useHistory();
   const dispatch = useDispatch();
 

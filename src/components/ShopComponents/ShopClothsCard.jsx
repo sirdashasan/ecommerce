@@ -10,8 +10,6 @@ const ShopClothsCard = () => {
   // En yüksek 5 ratinge sahip kategorileri al
   const top5Categories = sortedCategories.slice(0, 5);
 
-  console.log(top5Categories);
-
   return (
     <div className="flex flex-wrap">
       {top5Categories.map((category, index) => (
