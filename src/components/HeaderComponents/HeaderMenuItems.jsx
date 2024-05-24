@@ -32,11 +32,7 @@ const HeaderMenuItems = () => {
           <div
             className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer"
             onClick={() => {
-              if (window.location.pathname !== "/shop") {
-                window.location.href = "/shop";
-              } else {
-                toggleDropdown();
-              }
+              toggleDropdown();
             }}
           >
             Shop{" "}

@@ -31,21 +31,14 @@ export const fetchProducts = () => async (dispatch) => {
 export const getProducts = (categoryId, filter, sort, limit, offset) => {
   return async (dispatch) => {
     try {
-      const response = await axiosInstance.get(
-        `/products?${categoryId ? `category=${categoryId}` : ""}${
-          filter ? `&filter=${filter}` : ""
-        }${sort ? `&sort=${sort}` : ""}${limit ? `&limit=${limit}` : ""}${
-          offset ? `&offset=${offset}` : ""
-        }`
-      );
-      console.log(
-        `/products?${categoryId ? `category=${categoryId}` : ""}${
-          filter ? `&filter=${filter}` : ""
-        }${sort ? `&sort=${sort}` : ""}${limit ? `&limit=${limit}` : ""}${
-          offset ? `&offset=${offset}` : ""
-        }`
-      );
-      console.log(response.data);
+      const url = `/products?${categoryId ? `category=${categoryId}` : ""}${
+        filter ? `&filter=${filter}` : ""
+      }${sort ? `&sort=${sort}` : ""}${limit ? `&limit=${limit}` : ""}${
+        offset ? `&offset=${offset}` : ""
+      }`;
+      console.log("GET request URL:", url); // URL'yi loglayın
+      const response = await axiosInstance.get(url);
+      console.log("Response data:", response.data); // Yanıtı loglayın
       dispatch(setTotal(response?.data.total));
       dispatch(setProductList(response?.data.products));
     } catch (error) {

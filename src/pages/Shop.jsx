@@ -27,7 +27,7 @@ const Shop = () => {
 
   useEffect(() => {
     dispatch(getProducts(categoryId, filter, sort, limit, offset));
-  }, [categoryId, filter, sort, limit, offset]);
+  }, [categoryId, filter, sort, limit, offset, dispatch]);
 
   return (
     <div>
