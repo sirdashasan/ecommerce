@@ -32,11 +32,7 @@ const HeaderMenuItems = () => {
           <div
             className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer"
             onClick={() => {
-              if (window.location.pathname !== "/shop") {
-                window.location.href = "/shop";
-              } else {
-                toggleDropdown();
-              }
+              toggleDropdown();
             }}
           >
             Shop{" "}
@@ -52,29 +48,39 @@ const HeaderMenuItems = () => {
                 <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
                   Kadın
                 </div>
-                {womenCategories.map((category) => (
-                  <Link
-                    key={category.id}
-                    to={`/shop/${category.gender}/${category.code}`}
-                    className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
-                  >
-                    {category.title}
-                  </Link>
-                ))}
+                {womenCategories.map(
+                  (category) =>
+                    category.gender === "k" && (
+                      <Link
+                        key={category.id}
+                        to={`/shop/kadin/${category?.title?.toLowerCase()}/${
+                          category.id
+                        }`}
+                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                      >
+                        {category.title}
+                      </Link>
+                    )
+                )}
               </div>
               <div className="w-1/2">
                 <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
                   Erkek
                 </div>
-                {menCategories.map((category) => (
-                  <Link
-                    key={category.id}
-                    to={`/shop/${category.gender}/${category.code}`}
-                    className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
-                  >
-                    {category.title}
-                  </Link>
-                ))}
+                {menCategories.map(
+                  (category) =>
+                    category.gender === "e" && (
+                      <Link
+                        key={category.id}
+                        to={`/shop/erkek/${category.title.toLowerCase()}/${
+                          category.id
+                        }`}
+                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                      >
+                        {category.title}
+                      </Link>
+                    )
+                )}
               </div>
             </div>
           )}

@@ -55,7 +55,6 @@ const clientReducer = (state = initialState, action) => {
         language: action.payload,
       };
     case SET_TOKEN:
-      console.log(action.payload);
       return {
         ...state,
         token: action.payload,

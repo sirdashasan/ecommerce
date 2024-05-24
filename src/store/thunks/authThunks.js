@@ -50,7 +50,6 @@ export const verifyToken = () => {
         axiosInstance.defaults.headers.common["Authorization"] = token;
         const response = await axiosInstance.get("/verify");
         const user = await response.data;
-        console.log(user);
         dispatch(setUser(user));
         if (user.token) {
           localStorage.removeItem("token");
