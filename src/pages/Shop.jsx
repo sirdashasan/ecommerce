@@ -6,7 +6,8 @@ import ShopFilterCards from "../components/ShopComponents/ShopFilterCards";
 import ShopPagination from "../components/ShopComponents/ShopPagination";
 import ShopBrands from "../components/ShopComponents/ShopBrands";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom";
+import { setOffset } from "../store/actions/productActions";
 import { getProducts } from "../store/thunks/productThunks";
 
 const Shop = () => {
@@ -18,16 +19,26 @@ const Shop = () => {
   const offset = useSelector((state) => state.product.offset);
   const limit = useSelector((state) => state.product.limit);
 
-  console.log(location);
-
-  const { pathname } = location;
+  const { pathname, search } = location;
   const pathnameArr = pathname.split("/");
   const categoryId = pathnameArr[pathnameArr.length - 1];
-  console.log(pathnameArr[pathnameArr.length - 1]);
 
   useEffect(() => {
-    dispatch(getProducts(categoryId, filter, sort, limit, offset));
-  }, [categoryId, filter, sort, limit, offset, dispatch]);
+    const params = new URLSearchParams(search);
+    const limitParam = params.get("limit") || limit;
+    const offsetParam = params.get("offset") || offset;
+
+    dispatch(setOffset(Number(offsetParam)));
+    dispatch(
+      getProducts(
+        categoryId,
+        filter,
+        sort,
+        Number(limitParam),
+        Number(offsetParam)
+      )
+    );
+  }, [categoryId, filter, sort, limit, offset, search, dispatch]);
 
   return (
     <div>

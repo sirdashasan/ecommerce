@@ -15,6 +15,25 @@ const HeaderMenuItems = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const replaceTurkishCharacters = (str) => {
+    const map = {
+      ç: "c",
+      Ç: "C",
+      ğ: "g",
+      Ğ: "G",
+      ı: "i",
+      İ: "I",
+      ö: "o",
+      Ö: "O",
+      ş: "s",
+      Ş: "S",
+      ü: "u",
+      Ü: "U",
+    };
+
+    return str.replace(/[çÇğĞıİöÖşŞüÜ]/g, (match) => map[match] || match);
+  };
+
   const womenCategories = categories.filter((category) => category.id <= 8);
   const menCategories = categories.filter((category) => category.id > 8);
 
@@ -53,9 +72,9 @@ const HeaderMenuItems = () => {
                     category.gender === "k" && (
                       <Link
                         key={category.id}
-                        to={`/shop/kadin/${category?.title?.toLowerCase()}/${
-                          category.id
-                        }`}
+                        to={`/shop/kadin/${replaceTurkishCharacters(
+                          category?.title?.toLowerCase()
+                        )}/${category.id}`}
                         className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
                       >
                         {category.title}
@@ -72,9 +91,9 @@ const HeaderMenuItems = () => {
                     category.gender === "e" && (
                       <Link
                         key={category.id}
-                        to={`/shop/erkek/${category.title.toLowerCase()}/${
-                          category.id
-                        }`}
+                        to={`/shop/erkek/${replaceTurkishCharacters(
+                          category.title.toLowerCase()
+                        )}/${category.id}`}
                         className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
                       >
                         {category.title}
