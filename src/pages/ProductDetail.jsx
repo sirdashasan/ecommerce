@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductDetailCarousel from "../components/ProductDetailComponents/ProductDetailCarousel";
 import ProductDetailCarouselText from "../components/ProductDetailComponents/ProductDetailCarouselText";
 import ShopTitle from "../components/ShopComponents/ShopTitle";
@@ -7,6 +7,10 @@ import ProductDetailBestsellerProducts from "../components/ProductDetailComponen
 import ShopBrands from "../components/ShopComponents/ShopBrands";
 
 const ProductDetail = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="md:mx-12 mx-12 ">
       <div>

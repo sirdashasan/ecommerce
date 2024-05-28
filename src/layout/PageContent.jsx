@@ -16,13 +16,20 @@ const PageContent = () => {
     <div>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/shop" component={Shop} />
+        <Route
+          path="/shop/:gender/:categoryName/:categoryId/:productNameSlug/:productId"
+          component={ProductDetail}
+        />
+        <Route
+          path="/shop/:gender/:categoryName/:categoryId"
+          exact
+          component={Shop}
+        />
         <Route path="/about" component={About} />
         <Route path="/blog" component={Blog} />
         <Route path="/contact" component={Contact} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={SignUp} />
-        <Route path="/product-detail" component={ProductDetail} />
         <Route path="/team" component={Team} />
       </Switch>
     </div>

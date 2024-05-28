@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useLocation } from "react-router-dom";
 
 const ProductCard = () => {
   const history = useHistory();
@@ -9,8 +8,37 @@ const ProductCard = () => {
   const productList = useSelector((state) => state.product.productList);
   const fetchState = useSelector((state) => state.product.fetchState);
 
-  const handleClick = () => {
-    history.push("/product-detail");
+  const replaceTurkishCharacters = (str) => {
+    const map = {
+      ç: "c",
+      Ç: "C",
+      ğ: "g",
+      Ğ: "G",
+      ı: "i",
+      İ: "I",
+      ö: "o",
+      Ö: "O",
+      ş: "s",
+      Ş: "S",
+      ü: "u",
+      Ü: "U",
+    };
+
+    return str
+      .replace(/[çÇğĞıİöÖşŞüÜ]/g, (match) => map[match] || match)
+      .replace(/\s+/g, "-") // Boşlukları tire ile değiştir
+      .toLowerCase();
+  };
+
+  const handleClick = (product) => {
+    const currentUrl = location.pathname.split("/");
+    const gender = currentUrl[2]; // URL'deki gender parametresini al
+    const categoryName = currentUrl[3]; // URL'deki categoryName parametresini al
+    const categoryId = currentUrl[4]; // URL'deki categoryId parametresini al
+    const productNameSlug = replaceTurkishCharacters(product.name);
+    const productId = product.id;
+    const url = `/shop/${gender}/${categoryName}/${categoryId}/${productNameSlug}/${productId}`;
+    history.push(url);
   };
 
   return (
@@ -43,10 +71,9 @@ const ProductCard = () => {
       {productList.map((product) => (
         <div
           key={product.id}
-          className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full md:flex md:items-center md:flex-col "
-          onClick={handleClick}
+          className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full md:flex md:items-center md:flex-col"
+          onClick={() => handleClick(product)}
         >
-          {/* Resim */}
           <div className="relative">
             <img
               src={product.images[0].url}
