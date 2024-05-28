@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProductCard = () => {
   const history = useHistory();
+  const location = useLocation();
   const productList = useSelector((state) => state.product.productList);
   const fetchState = useSelector((state) => state.product.fetchState);
 

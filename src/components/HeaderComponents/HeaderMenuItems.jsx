@@ -15,6 +15,24 @@ const HeaderMenuItems = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const handleClickOutside = (event) => {
+    //menü dışında tıklamalar
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      !event.target.closest(".dropdown-toggle")
+    ) {
+      setShowDropdown(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const replaceTurkishCharacters = (str) => {
     const map = {
       ç: "c",
@@ -49,7 +67,7 @@ const HeaderMenuItems = () => {
           </Link>
 
           <div
-            className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer"
+            className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer dropdown-toggle"
             onClick={() => {
               toggleDropdown();
             }}
@@ -64,7 +82,7 @@ const HeaderMenuItems = () => {
               className="absolute mt-6 ml-20 bg-white shadow-md z-10 flex"
             >
               <div className="w-1/2">
-                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
+                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2 md:p-2">
                   Kadın
                 </div>
                 {womenCategories.map(
@@ -75,7 +93,7 @@ const HeaderMenuItems = () => {
                         to={`/shop/kadin/${replaceTurkishCharacters(
                           category?.title?.toLowerCase()
                         )}/${category.id}`}
-                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0 md:p-2"
                       >
                         {category.title}
                       </Link>
@@ -83,7 +101,7 @@ const HeaderMenuItems = () => {
                 )}
               </div>
               <div className="w-1/2">
-                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2">
+                <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2 md:p-2">
                   Erkek
                 </div>
                 {menCategories.map(
@@ -94,7 +112,7 @@ const HeaderMenuItems = () => {
                         to={`/shop/erkek/${replaceTurkishCharacters(
                           category.title.toLowerCase()
                         )}/${category.id}`}
-                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0"
+                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0 md:p-2"
                       >
                         {category.title}
                       </Link>
