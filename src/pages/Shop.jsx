@@ -38,7 +38,7 @@ const Shop = () => {
         Number(offsetParam)
       )
     );
-  }, [categoryId, filter, sort, limit, offset, search, dispatch]);
+  }, [categoryId, sort, limit, offset, search, dispatch]);
 
   return (
     <div>

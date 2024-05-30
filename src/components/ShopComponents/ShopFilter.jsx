@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faTableCellsLarge } from "@fortawesome/free-solid-svg-icons";
 import { setSort, setFilter } from "../../store/actions/productActions";
-import { getProducts } from "../../store/thunks/productThunks"; // Thunk fonksiyonunu ekleyin
+import { getProducts } from "../../store/thunks/productThunks";
 
 const ShopFilter = () => {
   const dispatch = useDispatch();
