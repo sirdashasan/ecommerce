@@ -24,7 +24,9 @@ const ShopPagination = () => {
     history.push({ search: params.toString() });
 
     dispatch(setOffset(newOffset));
-    dispatch(getProducts(null, null, null, limit, newOffset));
+    /*dispatch(
+      getProducts(null, null, null, limit, newOffset)
+    ); /*2 Kere request geldiğinden kapattım*/
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
