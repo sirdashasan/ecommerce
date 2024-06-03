@@ -1,14 +1,29 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as heartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faShoppingCart, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  addToCart,
+  setShowCart,
+} from "../../store/actions/shoppingCartActions";
 
-const ProductDetailButtons = () => {
+const ProductDetailButtons = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    dispatch(setShowCart(true));
+  };
+
   return (
     <div className="flex flex-row items-center gap-5 mt-6">
       <div>
-        <button className="bg-[#23A6F0] text-white rounded-lg w-36 h-12 font-bold text-sm">
-          Select Options
+        <button
+          onClick={handleAddToCart}
+          className="bg-[#23A6F0] text-white rounded-lg w-36 h-12 font-bold text-sm"
+        >
+          Sepete ekle
         </button>
       </div>
       <div className="flex flex-row gap-3">

@@ -106,7 +106,7 @@ const ProductDetailCarouselText = () => {
           <div className="w-7 h-7 bg-[#E77C40] rounded-full"></div>
           <div className="w-7 h-7 bg-[#252B42] rounded-full"></div>
         </div>
-        <ProductDetailButtons />
+        <ProductDetailButtons product={product} />
       </div>
     </div>
   );
