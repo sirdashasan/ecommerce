@@ -4,6 +4,10 @@ import {
   SET_ADDRESS,
   ADD_TO_CART,
   SET_SHOW_CART,
+  INCREASE_ITEM_COUNT,
+  DECREASE_ITEM_COUNT,
+  REMOVE_FROM_CART,
+  TOGGLE_ITEM_CHECKED,
 } from "../actions/shoppingCartActions";
 
 const initialState = {
@@ -53,6 +57,40 @@ const shoppingCartReducer = (state = initialState, action) => {
       return {
         ...state,
         showCart: action.payload,
+      };
+    case INCREASE_ITEM_COUNT:
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload
+            ? { ...item, count: item.count + 1 }
+            : item
+        ),
+      };
+    case DECREASE_ITEM_COUNT:
+      return {
+        ...state,
+        cart: state.cart
+          .map((item) =>
+            item.product.id === action.payload
+              ? { ...item, count: item.count - 1 }
+              : item
+          )
+          .filter((item) => item.count > 0),
+      };
+    case REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: state.cart.filter((item) => item.product.id !== action.payload),
+      };
+    case TOGGLE_ITEM_CHECKED:
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.product.id === action.payload
+            ? { ...item, checked: !item.checked }
+            : item
+        ),
       };
     default:
       return state;

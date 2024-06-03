@@ -33,14 +33,18 @@ const HeaderLogin = () => {
   };
 
   const handleClickOutside = (event) => {
-    //Sepet dışında bir yere tıklanırsa kapat
     if (
       cartRef.current &&
       !cartRef.current.contains(event.target) &&
-      !event.target.closest(".cart-toggle")
+      !event.target.closest(".cart-toggle") &&
+      !event.target.closest(".cart-button")
     ) {
       dispatch(setShowCart(false));
     }
+  };
+
+  const handleBasketRedirect = () => {
+    history.push("/basket");
   };
 
   useEffect(() => {
@@ -146,7 +150,10 @@ const HeaderLogin = () => {
                       </div>
                     ))}
                     <div className="flex justify-between mt-4 gap-4">
-                      <button className="bg-gray-200 text-black rounded-lg px-4 py-2 font-bold text-sm">
+                      <button
+                        className="bg-gray-200 text-black rounded-lg px-4 py-2 font-bold text-sm cart-button"
+                        onClick={handleBasketRedirect}
+                      >
                         Sepete Git
                       </button>
                       <button className="bg-[#23A6F0] text-white rounded-lg px-4 py-2 font-bold text-sm">
