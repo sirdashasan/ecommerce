@@ -6,6 +6,7 @@ import {
   removeFromCart,
   toggleItemChecked,
 } from "../store/actions/shoppingCartActions";
+import OrderSummary from "../components/BasketComponents/OrderSummary";
 
 const Basket = () => {
   const cart = useSelector((state) => state.shoppingCart.cart);
@@ -32,7 +33,7 @@ const Basket = () => {
     .reduce((total, item) => total + item.product.price * item.count, 0);
 
   return (
-    <div className="md:mx-36 mt-10 flex flex-col md:flex-row md:justify-between md:gap-8">
+    <div className="md:mx-36 md:mt-10 mt-44 flex flex-col md:flex-row md:justify-between md:gap-8">
       <div className="w-full lg:w-2/3">
         <h1 className="text-3xl font-semibold mb-6">
           Sepetim ({cart.length} Ürün)
@@ -90,32 +91,8 @@ const Basket = () => {
           ))}
         </div>
       </div>
-      <div className="w-full lg:w-1/3 p-4 border rounded-lg shadow-lg mt-6 lg:mt-0 md:h-72">
-        <h2 className="text-2xl font-semibold mb-4">Sipariş Özeti</h2>
-        <div className="mb-4">
-          <div className="flex justify-between text-sm text-gray-600">
-            <span>Ürünün Toplamı</span>
-            <span>${totalPrice.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between text-sm text-gray-600">
-            <span>Kargo Toplam</span>
-            <span>$29.99</span>
-          </div>
-          <div className="flex justify-between text-sm text-gray-600">
-            <span>150 ve Üzeri Kargo Bedava</span>
-            <span>-$29.99</span>
-          </div>
-          <div className="flex justify-between text-lg font-semibold mt-2">
-            <span>Toplam</span>
-            <span>${totalPrice.toFixed(2)}</span>
-          </div>
-        </div>
-        <button className="w-full bg-gray-200 text-gray-700 py-2 rounded-lg font-semibold text-sm">
-          + İNDİRİM KODU GİR
-        </button>
-        <button className="w-full mt-2 bg-[#23A6F0] text-white py-2 rounded-lg font-semibold text-xl">
-          Sepeti Onayla
-        </button>
+      <div>
+        <OrderSummary />
       </div>
     </div>
   );
