@@ -11,6 +11,7 @@ import ProductDetail from "../pages/ProductDetail";
 import Team from "../pages/Team";
 import SignUp from "../pages/SignUp";
 import Basket from "../pages/Basket";
+import Order from "../pages/Order";
 
 const PageContent = () => {
   return (
@@ -33,6 +34,7 @@ const PageContent = () => {
         <Route path="/register" component={SignUp} />
         <Route path="/team" component={Team} />
         <Route path="/basket" component={Basket} />
+        <Route path="/order" component={Order} />
       </Switch>
     </div>
   );
