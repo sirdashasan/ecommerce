@@ -16,6 +16,8 @@ export const DELETE_PAYMENT_REQUEST = "DELETE_PAYMENT_REQUEST";
 export const DELETE_PAYMENT_SUCCESS = "DELETE_PAYMENT_SUCCESS";
 export const DELETE_PAYMENT_FAILURE = "DELETE_PAYMENT_FAILURE";
 
+export const SET_SELECTED_PAYMENT = "SET_SELECTED_PAYMENT";
+
 // Fetch payments
 export const fetchPayments = () => async (dispatch) => {
   dispatch({ type: FETCH_PAYMENTS_REQUEST });
@@ -62,3 +64,8 @@ export const deletePayment = (paymentId) => async (dispatch) => {
     dispatch({ type: DELETE_PAYMENT_FAILURE, payload: error.message });
   }
 };
+
+export const setSelectedPayment = (paymentId) => ({
+  type: SET_SELECTED_PAYMENT,
+  payload: paymentId,
+});

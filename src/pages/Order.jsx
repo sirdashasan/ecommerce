@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import OrderSummary from "../components/BasketComponents/OrderSummary";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
 import OrderForm from "../components/OrderComponents/OrderForm";
@@ -9,13 +8,16 @@ import {
   deleteAddress,
   fetchAddresses,
   updateAddress,
+  setSelectedAddress,
 } from "../store/actions/adressActions";
 import {
   addPayment,
   deletePayment,
   fetchPayments,
   updatePayment,
+  setSelectedPayment,
 } from "../store/actions/paymentActions";
+import OrderSummary from "../components/BasketComponents/OrderSummary";
 
 Modal.setAppElement("#root");
 
@@ -24,8 +26,6 @@ const Order = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [isEditingAddress, setIsEditingAddress] = useState(false);
   const [isEditingPayment, setIsEditingPayment] = useState(false);
-  const [selectedAddressId, setSelectedAddressId] = useState(null);
-  const [selectedPaymentId, setSelectedPaymentId] = useState(null);
   const [formData, setFormData] = useState({
     id: null,
     title: "",
@@ -48,6 +48,12 @@ const Order = () => {
   const dispatch = useDispatch();
   const addresses = useSelector((state) => state.address.addresses);
   const payments = useSelector((state) => state.payment.payments);
+  const selectedAddressId = useSelector(
+    (state) => state.address.selectedAddressId
+  );
+  const selectedPaymentId = useSelector(
+    (state) => state.payment.selectedPaymentId
+  );
 
   useEffect(() => {
     dispatch(fetchAddresses());
@@ -106,11 +112,11 @@ const Order = () => {
   };
 
   const handleSelectAddress = (addressId) => {
-    setSelectedAddressId(addressId);
+    dispatch(setSelectedAddress(addressId));
   };
 
   const handleSelectPayment = (paymentId) => {
-    setSelectedPaymentId(paymentId);
+    dispatch(setSelectedPayment(paymentId));
   };
 
   return (
