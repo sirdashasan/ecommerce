@@ -16,6 +16,8 @@ export const DELETE_ADDRESS_REQUEST = "DELETE_ADDRESS_REQUEST";
 export const DELETE_ADDRESS_SUCCESS = "DELETE_ADDRESS_SUCCESS";
 export const DELETE_ADDRESS_FAILURE = "DELETE_ADDRESS_FAILURE";
 
+export const SET_SELECTED_ADDRESS = "SET_SELECTED_ADDRESS";
+
 // Fetch addresses
 export const fetchAddresses = () => async (dispatch) => {
   dispatch({ type: FETCH_ADDRESSES_REQUEST });
@@ -62,3 +64,8 @@ export const deleteAddress = (addressId) => async (dispatch) => {
     dispatch({ type: DELETE_ADDRESS_FAILURE, payload: error.message });
   }
 };
+
+export const setSelectedAddress = (addressId) => ({
+  type: SET_SELECTED_ADDRESS,
+  payload: addressId,
+});

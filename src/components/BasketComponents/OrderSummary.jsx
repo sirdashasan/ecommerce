@@ -1,23 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useLocation } from "react-router-dom";
+import OrderSummaryButton from "./OrderSummaryButton";
+import OrderCompleteButton from "./OrderCompleteButton";
 
 const OrderSummary = () => {
   const cart = useSelector((state) => state.shoppingCart.cart);
-  const user = useSelector((state) => state.client.user);
-  const history = useHistory();
+  const location = useLocation();
 
   const totalPrice = cart
     .filter((item) => item.checked)
     .reduce((total, item) => total + item.product.price * item.count, 0);
-
-  const handleCheckout = () => {
-    if (!user || !user.token) {
-      history.push("/login");
-    } else {
-      history.push("/order");
-    }
-  };
 
   return (
     <div>
@@ -44,12 +37,8 @@ const OrderSummary = () => {
         <button className="w-full bg-gray-200 text-gray-700 py-2 rounded-lg font-semibold text-sm">
           + İNDİRİM KODU GİR
         </button>
-        <button
-          className="w-full mt-2 bg-[#23A6F0] text-white py-2 rounded-lg font-semibold text-xl"
-          onClick={handleCheckout}
-        >
-          Sepeti Onayla
-        </button>
+        {location.pathname === "/basket" && <OrderSummaryButton />}
+        {location.pathname === "/order" && <OrderCompleteButton />}
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import {
   DELETE_ADDRESS_REQUEST,
   DELETE_ADDRESS_SUCCESS,
   DELETE_ADDRESS_FAILURE,
+  SET_SELECTED_ADDRESS,
 } from "../actions/adressActions";
 
 const initialState = {
@@ -51,6 +52,11 @@ const addressReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case SET_SELECTED_ADDRESS:
+      return {
+        ...state,
+        selectedAddressId: action.payload,
       };
     default:
       return state;

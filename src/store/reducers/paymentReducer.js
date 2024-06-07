@@ -11,6 +11,7 @@ import {
   DELETE_PAYMENT_REQUEST,
   DELETE_PAYMENT_SUCCESS,
   DELETE_PAYMENT_FAILURE,
+  SET_SELECTED_PAYMENT,
 } from "../actions/paymentActions";
 
 const initialState = {
@@ -51,6 +52,11 @@ const paymentReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      };
+    case SET_SELECTED_PAYMENT:
+      return {
+        ...state,
+        selectedPaymentId: action.payload,
       };
     default:
       return state;
