@@ -43,8 +43,15 @@ const HeaderLogin = () => {
     }
   };
 
-  const handleBasketRedirect = () => {
+  const handleBasketRedirect = (event) => {
+    event.stopPropagation();
     history.push("/basket");
+  };
+
+  const handleOrderRedirect = (event) => {
+    event.stopPropagation();
+    console.log("Redirecting to /order");
+    history.push("/order");
   };
 
   useEffect(() => {
@@ -156,7 +163,10 @@ const HeaderLogin = () => {
                       >
                         Sepete Git
                       </button>
-                      <button className="bg-[#23A6F0] text-white rounded-lg px-4 py-2 font-bold text-sm">
+                      <button
+                        className="bg-[#23A6F0] text-white rounded-lg px-4 py-2 font-bold text-sm cart-button"
+                        onClick={handleOrderRedirect}
+                      >
                         Siparişi Tamamla
                       </button>
                     </div>

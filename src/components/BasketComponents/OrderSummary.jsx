@@ -33,7 +33,7 @@ const OrderSummary = () => {
             <span>$29.99</span>
           </div>
           <div className="flex justify-between text-sm text-gray-600">
-            <span>150 ve Üzeri Kargo Bedava</span>
+            <span>$150 ve Üzeri Kargo Bedava</span>
             <span>-$29.99</span>
           </div>
           <div className="flex justify-between text-lg font-semibold mt-2">
