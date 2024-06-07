@@ -1,9 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faMagnifyingGlass,
   faBars,
+  faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faHeart as farHeart,
@@ -16,15 +17,17 @@ import { logoutUser } from "../../store/thunks/authThunks";
 import { setShowCart } from "../../store/actions/shoppingCartActions";
 
 const HeaderLogin = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const user = useSelector((state) => state.client.user);
   const cart = useSelector((state) => state.shoppingCart.cart);
   const showCart = useSelector((state) => state.shoppingCart.showCart);
   const history = useHistory();
   const dispatch = useDispatch();
   const cartRef = useRef(null);
+  const dropdownRef = useRef(null);
 
   const handleLogout = () => {
-    dispatch(logoutUser()); // Redux'taki oturumu sonlandır
+    dispatch(logoutUser());
     history.push("/login");
   };
 
@@ -41,6 +44,13 @@ const HeaderLogin = () => {
     ) {
       dispatch(setShowCart(false));
     }
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      !event.target.closest(".dropdown-toggle")
+    ) {
+      setDropdownOpen(false);
+    }
   };
 
   const handleBasketRedirect = (event) => {
@@ -52,6 +62,14 @@ const HeaderLogin = () => {
     event.stopPropagation();
     console.log("Redirecting to /order");
     history.push("/order");
+  };
+
+  const handleDropdownToggle = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+
+  const handlePreviousOrdersRedirect = () => {
+    history.push("/PreviousOrders");
   };
 
   useEffect(() => {
@@ -69,7 +87,7 @@ const HeaderLogin = () => {
         <div className="flex items-center space-x-6">
           <div className="md:flex md:items-center md:flex-wrap">
             {user?.name ? (
-              <div className="flex items-center md:text-[#23A6F0]">
+              <div className="relative flex items-center md:text-[#23A6F0]">
                 <img
                   src={gravatar.url(user.email, {
                     s: "100",
@@ -79,9 +97,31 @@ const HeaderLogin = () => {
                   alt={user.name}
                   className="rounded-full w-6 h-6 mr-1"
                 />
-                <span className="ml-1 text-sm font-semibold">
-                  {user.name} /
-                </span>
+                <span className="ml-1 text-sm font-semibold">{user.name}</span>
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="ml-1 cursor-pointer dropdown-toggle"
+                  onClick={handleDropdownToggle}
+                />
+                {dropdownOpen && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute right-0 mt-36 w-48 bg-white shadow-lg rounded-lg p-2 z-50"
+                  >
+                    <div
+                      className="cursor-pointer p-2 hover:bg-gray-200 rounded"
+                      onClick={handlePreviousOrdersRedirect}
+                    >
+                      Önceki Siparişlerim
+                    </div>
+                    <div
+                      className="cursor-pointer p-2 hover:bg-gray-200 rounded"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </div>
+                  </div>
+                )}
               </div>
             ) : (
               <Link
@@ -92,20 +132,13 @@ const HeaderLogin = () => {
                 <span className="ml-1 text-sm font-bold">Login /</span>
               </Link>
             )}
-            {!user?.name ? (
+            {!user?.name && (
               <Link
                 to="/register"
                 className="hidden md:flex items-center md:text-[#23A6F0]"
               >
                 <span className="ml-1 text-sm font-bold">Register</span>
               </Link>
-            ) : (
-              <button
-                onClick={handleLogout}
-                className="hidden md:flex items-center md:text-[#23A6F0] cursor-pointer ml-1"
-              >
-                Logout
-              </button>
             )}
           </div>
           <a href="#" className="text-[#252B42] md:text-[#23A6F0]">
