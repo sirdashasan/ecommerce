@@ -2,22 +2,30 @@ import React, { useState, useEffect } from "react";
 import OrderSummary from "../components/BasketComponents/OrderSummary";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-
 import OrderForm from "../components/OrderComponents/OrderForm";
+import PaymentForm from "../components/OrderComponents/PaymentForm";
 import {
   addAddress,
   deleteAddress,
   fetchAddresses,
   updateAddress,
 } from "../store/actions/adressActions";
+import {
+  addPayment,
+  deletePayment,
+  fetchPayments,
+  updatePayment,
+} from "../store/actions/paymentActions";
 
 Modal.setAppElement("#root");
 
 const Order = () => {
   const [activeTab, setActiveTab] = useState("address");
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [selectedAddressId, setSelectedAddressId] = useState(null); // Seçili adresi tutan state
+  const [isEditingAddress, setIsEditingAddress] = useState(false);
+  const [isEditingPayment, setIsEditingPayment] = useState(false);
+  const [selectedAddressId, setSelectedAddressId] = useState(null);
+  const [selectedPaymentId, setSelectedPaymentId] = useState(null);
   const [formData, setFormData] = useState({
     id: null,
     title: "",
@@ -29,12 +37,21 @@ const Order = () => {
     neighborhood: "",
     address: "",
   });
+  const [paymentData, setPaymentData] = useState({
+    id: null,
+    card_no: "",
+    expire_month: "",
+    expire_year: "",
+    name_on_card: "",
+  });
 
   const dispatch = useDispatch();
   const addresses = useSelector((state) => state.address.addresses);
+  const payments = useSelector((state) => state.payment.payments);
 
   useEffect(() => {
     dispatch(fetchAddresses());
+    dispatch(fetchPayments());
   }, [dispatch]);
 
   const handleInputChange = (e) => {
@@ -42,12 +59,28 @@ const Order = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handlePaymentInputChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentData({ ...paymentData, [name]: value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isEditing) {
+    if (isEditingAddress) {
       dispatch(updateAddress(formData));
     } else {
       dispatch(addAddress(formData));
+    }
+    setModalIsOpen(false);
+  };
+
+  const handlePaymentSubmit = (e) => {
+    e.preventDefault();
+    console.log("Card data:", paymentData);
+    if (isEditingPayment) {
+      dispatch(updatePayment(paymentData));
+    } else {
+      dispatch(addPayment(paymentData));
     }
     setModalIsOpen(false);
   };
@@ -56,14 +89,28 @@ const Order = () => {
     dispatch(deleteAddress(addressId));
   };
 
+  const handlePaymentDelete = (paymentId) => {
+    dispatch(deletePayment(paymentId));
+  };
+
   const openEditModal = (address) => {
     setFormData(address);
-    setIsEditing(true);
+    setIsEditingAddress(true);
+    setModalIsOpen(true);
+  };
+
+  const openPaymentEditModal = (payment) => {
+    setPaymentData(payment);
+    setIsEditingPayment(true);
     setModalIsOpen(true);
   };
 
   const handleSelectAddress = (addressId) => {
-    setSelectedAddressId(addressId); // Seçili adresi güncelle
+    setSelectedAddressId(addressId);
+  };
+
+  const handleSelectPayment = (paymentId) => {
+    setSelectedPaymentId(paymentId);
   };
 
   return (
@@ -110,7 +157,7 @@ const Order = () => {
                     neighborhood: "",
                     address: "",
                   });
-                  setIsEditing(false);
+                  setIsEditingAddress(false);
                   setModalIsOpen(true);
                 }}
               >
@@ -157,46 +204,68 @@ const Order = () => {
         {activeTab === "payment" && (
           <div>
             <h2 className="text-xl font-semibold mb-4">Kart ile Öde</h2>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Kart Numarası
-              </label>
-              <input
-                type="text"
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-              />
+
+            <div className="mb-4 md:flex md:flex-col md:gap-5">
+              <button
+                className="bg-gray-100 text-gray-700 py-8 px-64 rounded-lg font-semibold text-sm w-64"
+                onClick={() => {
+                  setPaymentData({
+                    id: null,
+                    card_no: "",
+                    expire_month: "",
+                    expire_year: "",
+                    name_on_card: "",
+                  });
+                  setIsEditingPayment(false);
+                  setModalIsOpen(true);
+                }}
+              >
+                + Yeni Kart Ekle
+              </button>
+              {payments.map((payment) => (
+                <button
+                  key={payment.id}
+                  className={`bg-gray-100 text-gray-700 py-16 px-64 rounded-lg font-semibold text-sm w-64 relative ${
+                    selectedPaymentId === payment.id
+                      ? "border-2 border-[#23A6F0]"
+                      : ""
+                  }`}
+                  onClick={() => handleSelectPayment(payment.id)}
+                >
+                  <div className="absolute top-4 left-0 text-left pl-8">
+                    {selectedPaymentId === payment.id && (
+                      <div className="absolute top-1 left-2 h-4 w-4 bg-[#23A6F0] rounded-full border-4 border-gray"></div>
+                    )}
+                    <p className="font-semibold">{payment.name_on_card}</p>
+                    <p className="text-left mt-4">
+                      Kart Numarası: **** **** **** {payment.card_no.slice(-4)}
+                    </p>
+                    <p className="text-left">
+                      Son Kullanma Tarihi: {payment.expire_month}/
+                      {payment.expire_year}
+                    </p>
+                  </div>
+                  <button
+                    className="absolute top-0 right-0 text-red-500 md:px-4 md:pt-4"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePaymentDelete(payment.id);
+                    }}
+                  >
+                    Sil
+                  </button>
+                  <button
+                    className="absolute top-0 right-0 text-blue-500 md:px-4 md:pt-4 md:mr-8"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openPaymentEditModal(payment);
+                    }}
+                  >
+                    Düzenle
+                  </button>
+                </button>
+              ))}
             </div>
-            <div className="flex mb-4">
-              <div className="mr-4">
-                <label className="block text-sm font-medium text-gray-700">
-                  Son Kullanma Tarihi
-                </label>
-                <div className="flex">
-                  <input
-                    type="text"
-                    placeholder="Ay"
-                    className="mt-1 block w-16 p-2 border border-gray-300 rounded-md"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Yıl"
-                    className="mt-1 block w-16 p-2 border border-gray-300 rounded-md ml-2"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  CVV
-                </label>
-                <input
-                  type="text"
-                  className="mt-1 block w-16 p-2 border border-gray-300 rounded-md"
-                />
-              </div>
-            </div>
-            <button className="bg-gray-200 text-gray-700 py-2 px-4 rounded-lg font-semibold text-sm">
-              Ödeme Yap
-            </button>
           </div>
         )}
       </div>
@@ -206,16 +275,25 @@ const Order = () => {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={() => setModalIsOpen(false)}
-        contentLabel="Adres Ekle"
+        contentLabel={isEditingAddress || isEditingPayment ? "Düzenle" : "Ekle"}
         className="modal"
         overlayClassName="modal-overlay"
       >
-        <OrderForm
-          formData={formData}
-          handleInputChange={handleInputChange}
-          handleSubmit={handleSubmit}
-          closeModal={() => setModalIsOpen(false)}
-        />
+        {activeTab === "address" ? (
+          <OrderForm
+            formData={formData}
+            handleInputChange={handleInputChange}
+            handleSubmit={handleSubmit}
+            closeModal={() => setModalIsOpen(false)}
+          />
+        ) : (
+          <PaymentForm
+            paymentData={paymentData}
+            handleInputChange={handlePaymentInputChange}
+            handleSubmit={handlePaymentSubmit}
+            closeModal={() => setModalIsOpen(false)}
+          />
+        )}
       </Modal>
     </div>
   );
