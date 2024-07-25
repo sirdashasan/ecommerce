@@ -15,8 +15,9 @@ import { useDispatch, useSelector } from "react-redux";
 import gravatar from "gravatar";
 import { logoutUser } from "../../store/thunks/authThunks";
 import { setShowCart } from "../../store/actions/shoppingCartActions";
+import HeaderMenuItems from "./HeaderMenuItems";
 
-const HeaderLogin = () => {
+const HeaderLogin = ({ toggleMenu }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const user = useSelector((state) => state.client.user);
   const cart = useSelector((state) => state.shoppingCart.cart);
@@ -60,7 +61,6 @@ const HeaderLogin = () => {
 
   const handleOrderRedirect = (event) => {
     event.stopPropagation();
-    console.log("Redirecting to /order");
     history.push("/order");
   };
 
@@ -211,9 +211,6 @@ const HeaderLogin = () => {
           <a href="#" className="hidden md:flex items-center md:text-[#23A6F0]">
             <FontAwesomeIcon icon={farHeart} size="sm" />
             <span className="ml-1 text-xs">1</span>
-          </a>
-          <a href="#" className="md:hidden items-center text-[#252B42]">
-            <FontAwesomeIcon icon={faBars} size="sm" />
           </a>
         </div>
       </div>

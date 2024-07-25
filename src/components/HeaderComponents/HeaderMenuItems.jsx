@@ -68,9 +68,7 @@ const HeaderMenuItems = () => {
 
           <div
             className="md:flex items-center font-semibold my-1 text-[#252B42] md:mx-2 md:my-0 cursor-pointer dropdown-toggle"
-            onClick={() => {
-              toggleDropdown();
-            }}
+            onClick={toggleDropdown}
           >
             Shop{" "}
             <FontAwesomeIcon icon={faChevronDown} size="xs" className="ml-2" />
@@ -79,45 +77,53 @@ const HeaderMenuItems = () => {
           {showDropdown && (
             <div
               ref={dropdownRef}
-              className="absolute mt-6 ml-20 bg-white shadow-md z-10 flex"
+              className="absolute md:mt-6 md:ml-16 top-0 left-0 md:top-auto md:left-auto bg-white shadow-md z-10 flex flex-col md:flex-row w-full md:w-auto"
             >
               <div className="w-1/2">
                 <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2 md:p-2">
                   Kadın
                 </div>
-                {womenCategories.map(
-                  (category) =>
-                    category.gender === "k" && (
-                      <Link
-                        key={category.id}
-                        to={`/shop/kadin/${replaceTurkishCharacters(
-                          category?.title?.toLowerCase()
-                        )}/${category.id}`}
-                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0 md:p-2"
-                      >
-                        {category.title}
-                      </Link>
-                    )
-                )}
+                {womenCategories.map((category) => (
+                  <Link
+                    key={category.id}
+                    to={`/shop/kadin/${replaceTurkishCharacters(
+                      category.title.toLowerCase()
+                    )}/${category.id}`}
+                    className="md:flex my-1 text-[#737373] md:mx-2 md:my-0 md:p-2 flex items-center"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <img
+                      src={category.img}
+                      alt={category.title}
+                      className="w-10 h-10 mr-2"
+                      style={{ objectFit: "cover", objectPosition: "center" }}
+                    />
+                    {category.title}
+                  </Link>
+                ))}
               </div>
               <div className="w-1/2">
                 <div className="font-semibold text-[#252B42] mt-2 mb-2 mx-2 md:p-2">
                   Erkek
                 </div>
-                {menCategories.map(
-                  (category) =>
-                    category.gender === "e" && (
-                      <Link
-                        key={category.id}
-                        to={`/shop/erkek/${replaceTurkishCharacters(
-                          category.title.toLowerCase()
-                        )}/${category.id}`}
-                        className="md:block my-1 text-[#737373] md:mx-2 md:my-0 md:p-2"
-                      >
-                        {category.title}
-                      </Link>
-                    )
-                )}
+                {menCategories.map((category) => (
+                  <Link
+                    key={category.id}
+                    to={`/shop/erkek/${replaceTurkishCharacters(
+                      category.title.toLowerCase()
+                    )}/${category.id}`}
+                    className="md:flex my-1 text-[#737373] md:mx-2 md:my-0 md:p-2 flex items-center"
+                    onClick={() => setShowDropdown(false)}
+                  >
+                    <img
+                      src={category.img}
+                      alt={category.title}
+                      className="w-10 h-10 mr-2"
+                      style={{ objectFit: "cover", objectPosition: "center" }}
+                    />
+                    {category.title}
+                  </Link>
+                ))}
               </div>
             </div>
           )}
