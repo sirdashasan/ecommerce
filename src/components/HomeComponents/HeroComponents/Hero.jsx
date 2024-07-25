@@ -52,7 +52,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="h-[840px] w-full md:w-full relative group mt-48 md:mt-[-20px]">
+    <div className="h-[840px] w-full md:w-full relative group">
       <div
         className={`w-full h-full bg-cover duration-500 ${
           currentIndex === 0 ? "bg-[center_20%]" : "bg-center"
