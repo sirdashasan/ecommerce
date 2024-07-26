@@ -11,7 +11,7 @@ const Hero = () => {
   const history = useHistory();
 
   const navigate = () => {
-    history.push("/shop");
+    history.push("/shop/kadin/elbise/4");
   };
 
   const slides = [
@@ -68,7 +68,7 @@ const Hero = () => {
         <p className="my-14 mx-32 md:mx-0 text-3xl font-bold drop-shadow-black">
           NEW COLLECTION
         </p>
-        <p className="font-base text-xl mx-20 md:ml-0 md:text-left drop-shadow-black">
+        <p className="font-base text-xl mx-20 md:ml-0 md:text-left drop-shadow-black flex flex-col">
           Personalized Fashion Tips
           <br className="hidden md:block drop-shadow-black" /> Shine with Your
           Own Style!
