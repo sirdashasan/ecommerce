@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         sans: ["Montserrat", "sans-serif"],
       },
+      dropShadow: {
+        black: "0 8px 10px rgba(0, 0, 0, 0.9)",
+      },
     },
   },
   plugins: [],
