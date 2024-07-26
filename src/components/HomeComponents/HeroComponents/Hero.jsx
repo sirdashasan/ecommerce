@@ -69,7 +69,10 @@ const Hero = () => {
           NEW COLLECTION
         </p>
         <p className="font-base text-xl mx-20 md:ml-0 md:text-left drop-shadow-black flex flex-col">
-          Personalized Fashion Tips
+          <span>
+            {" "}
+            <span className="hidden md:block">Personalized</span> Fashion Tips
+          </span>
           <br className="hidden md:block drop-shadow-black" /> Shine with Your
           Own Style!
         </p>
