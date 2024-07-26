@@ -27,6 +27,7 @@ const Header = () => {
             <HeaderMenuItems />
           </div>
           <div className="md:hidden flex items-center">
+            <HeaderLogin />
             <button onClick={toggleMenu} className="text-[#252B42] ml-4">
               <FontAwesomeIcon icon={faBars} size="sm" />
             </button>
