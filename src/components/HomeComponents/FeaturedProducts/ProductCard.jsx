@@ -87,7 +87,7 @@ const ProductCard = () => {
               {product.department}
             </h2>
             <p className="mt-4 mx-24 md:mx-0 text-base text-[#737373] font-semibold">
-              <span className="text-[#BDBDBD]">{product.price}</span>{" "}
+              <span className="text-[#BDBDBD]">${product.price}</span>{" "}
               <span className="text-[#23856D] pl-2">
                 {product.discountedPrice}
               </span>
