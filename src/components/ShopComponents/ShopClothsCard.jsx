@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const ShopClothsCard = () => {
@@ -38,9 +38,9 @@ const ShopClothsCard = () => {
   };
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-center">
       {top5Categories.map((category, index) => (
-        <div key={category.id} className="w-1/5 p-2 ">
+        <div key={category.id} className="w-full p-1 md:w-1/5">
           <div
             className="relative flex justify-center items-center cursor-pointer md:mx-4"
             onClick={() => handleCardClick(category)}
