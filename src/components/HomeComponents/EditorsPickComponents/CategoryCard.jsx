@@ -4,10 +4,10 @@ import { useHistory } from "react-router-dom";
 const CategoryCard = () => {
   const history = useHistory();
 
-  const navigateToMen = () => history.push("/shop/men");
-  const navigateToWomen = () => history.push("/shop/women");
-  const navigateToAccessories = () => history.push("/shop/accessories");
-  const navigateToKids = () => history.push("/shop/kids");
+  const navigateToMen = () => history.push("/shop/kadin/ayakkabi/2");
+  const navigateToWomen = () => history.push("/shop/kadin/elbise/4");
+  const navigateToAccessories = () => history.push("/shop/kadin/ceket/3");
+  const navigateToKids = () => history.push("/shop/kadin/tisort/1");
 
   return (
     <>
@@ -32,7 +32,7 @@ const CategoryCard = () => {
           />
           {/* Buton */}
           <button
-            className="absolute left-16 right-0 bottom-8 w-[140px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+            className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
             onClick={navigateToMen}
           >
             MEN
@@ -51,7 +51,7 @@ const CategoryCard = () => {
           />
           {/* Buton */}
           <button
-            className="absolute left-32 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+            className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
             onClick={navigateToWomen}
           >
             WOMEN
@@ -73,10 +73,10 @@ const CategoryCard = () => {
             </div>
             {/* Buton */}
             <button
-              className="absolute left-8 right-0 bottom-8 w-[160px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
+              className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
               onClick={navigateToAccessories}
             >
-              ACCESSORIES
+              JACKET
             </button>
           </div>
 
@@ -97,7 +97,7 @@ const CategoryCard = () => {
               className="absolute left-8 right-0 bottom-8 w-[120px] bg-white text-black py-2 font-sans font-bold md:left-4 md:bottom-4"
               onClick={navigateToKids}
             >
-              KIDS
+              SHIRT
             </button>
           </div>
         </div>
