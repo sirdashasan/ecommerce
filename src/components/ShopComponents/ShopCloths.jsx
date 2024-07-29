@@ -3,7 +3,7 @@ import ShopClothsCard from "./ShopClothsCard";
 
 const ShopCloths = () => {
   return (
-    <div className="mx-12 mt-12 flex justify-center flex-col gap-5 md:flex md:flex-row md:flex-wrap">
+    <div className="mt-12 flex flex-col gap-5 md:flex-row md:flex-wrap justify-center">
       <ShopClothsCard />
     </div>
   );

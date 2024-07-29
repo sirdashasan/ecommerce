@@ -40,12 +40,12 @@ const ShopClothsCard = () => {
   return (
     <div className="flex flex-wrap">
       {top5Categories.map((category, index) => (
-        <div key={category.id} className="w-1/5 p-2">
+        <div key={category.id} className="w-1/5 p-2 ">
           <div
-            className="relative flex justify-center items-center cursor-pointer"
+            className="relative flex justify-center items-center cursor-pointer md:mx-4"
             onClick={() => handleCardClick(category)}
           >
-            <span className="absolute text-center text-white text-lg font-bold py-1 px-3 rounded-sm font-sans">
+            <span className="absolute text-center text-white text-lg font-bold py-1 px-3 rounded-sm font-sans drop-shadow-black">
               <p>{category.title}</p>
               <p className="mt-6">{category.rating}</p>
             </span>
