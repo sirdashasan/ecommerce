@@ -25,7 +25,7 @@ const ShopFilter = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-between rounded font-sans mt-12 md:mx-8">
+    <div className="flex flex-col items-center justify-between rounded font-sans mt-12 md:mx-4">
       <div className="flex flex-col md:flex md:flex-row md:items-center md:justify-between md:w-full ">
         <div className="text-sm font-semibold text-center text-[#737373]">
           Showing all 12 results

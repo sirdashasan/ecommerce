@@ -71,7 +71,7 @@ const ProductCard = () => {
       {productList.map((product) => (
         <div
           key={product.id}
-          className="bg-white overflow-hidden mt-6 mx-auto md:mx-0 md:max-w-full md:flex md:items-center md:flex-col"
+          className="bg-white overflow-hidden mt-6 mx-auto md:max-w-full md:flex md:items-center md:flex-col"
           onClick={() => handleClick(product)}
         >
           <div className="relative">
