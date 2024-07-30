@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import HeaderLogin from "../components/HeaderComponents/HeaderLogin";
 import HeaderMenuItems from "../components/HeaderComponents/HeaderMenuItems";
 import HeaderLogo from "../components/HeaderComponents/HeaderLogo";
@@ -7,10 +7,28 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      !event.target.closest(".menu-toggle")
+    ) {
+      setMenuOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header
@@ -24,11 +42,14 @@ const Header = () => {
             <HeaderLogo />
           </div>
           <div className="hidden md:block">
-            <HeaderMenuItems />
+            <HeaderMenuItems closeMenu={() => setMenuOpen(false)} />
           </div>
           <div className="md:hidden flex items-center">
             <HeaderLogin />
-            <button onClick={toggleMenu} className="text-[#252B42] ml-4">
+            <button
+              onClick={toggleMenu}
+              className="text-[#252B42] ml-4 menu-toggle"
+            >
               <FontAwesomeIcon icon={faBars} size="sm" />
             </button>
           </div>
@@ -38,8 +59,11 @@ const Header = () => {
         </div>
       </nav>
       {menuOpen && (
-        <div className="md:hidden absolute top-12 pb-6 left-0 w-full bg-white z-10">
-          <HeaderMenuItems />
+        <div
+          ref={menuRef}
+          className="md:hidden absolute top-12 pb-6 left-0 w-full bg-white z-10"
+        >
+          <HeaderMenuItems closeMenu={() => setMenuOpen(false)} />
         </div>
       )}
     </header>

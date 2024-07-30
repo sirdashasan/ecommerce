@@ -4,7 +4,7 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-const HeaderMenuItems = () => {
+const HeaderMenuItems = ({ closeMenu }) => {
   const dispatch = useDispatch();
   const categories = useSelector((state) => state.product.categories);
 
@@ -16,7 +16,6 @@ const HeaderMenuItems = () => {
   };
 
   const handleClickOutside = (event) => {
-    //menü dışında tıklamalar
     if (
       dropdownRef.current &&
       !dropdownRef.current.contains(event.target) &&
@@ -62,6 +61,7 @@ const HeaderMenuItems = () => {
           <Link
             to="/"
             className="font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            onClick={closeMenu}
           >
             Home
           </Link>
@@ -90,7 +90,10 @@ const HeaderMenuItems = () => {
                       category.title.toLowerCase()
                     )}/${category.id}`}
                     className="md:flex my-1 text-[#737373] md:mx-2 md:my-0 md:p-2 flex items-center"
-                    onClick={() => setShowDropdown(false)}
+                    onClick={() => {
+                      setShowDropdown(false);
+                      closeMenu();
+                    }}
                   >
                     <img
                       src={category.img}
@@ -113,7 +116,10 @@ const HeaderMenuItems = () => {
                       category.title.toLowerCase()
                     )}/${category.id}`}
                     className="md:flex my-1 text-[#737373] md:mx-2 md:my-0 md:p-2 flex items-center"
-                    onClick={() => setShowDropdown(false)}
+                    onClick={() => {
+                      setShowDropdown(false);
+                      closeMenu();
+                    }}
                   >
                     <img
                       src={category.img}
@@ -131,24 +137,28 @@ const HeaderMenuItems = () => {
           <Link
             to="/about"
             className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            onClick={closeMenu}
           >
             About
           </Link>
           <Link
             to="/blog"
             className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            onClick={closeMenu}
           >
             Blog
           </Link>
           <Link
             to="/contact"
             className="font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            onClick={closeMenu}
           >
             Contact
           </Link>
           <Link
             to="/team"
             className="md:block font-bold my-1 text-[#737373] md:mx-2 md:my-0"
+            onClick={closeMenu}
           >
             Team
           </Link>

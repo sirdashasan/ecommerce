@@ -8,7 +8,7 @@ import {
 
 const FooterLogos = () => {
   return (
-    <div className="text-[#23A6F0] flex justify-start space-x-5 mt-4">
+    <div className="text-[#23A6F0] flex justify-center items-center space-x-5 mt-4">
       <FontAwesomeIcon icon={faFacebook} className="w-[24px] h-[24px]" />
       <FontAwesomeIcon icon={faInstagram} className="w-[24px] h-[24px]" />
       <FontAwesomeIcon icon={faTwitter} className="w-[24px] h-[24px]" />

@@ -12,9 +12,6 @@ const BestsellerProducts = () => {
         <h2 className="p-4 mx-auto text-2xl font-bold max-w-xs md:max-w-full">
           BESTSELLER PRODUCTS
         </h2>
-        <p className="mx-auto text-sm text-[#737373] font-semibold max-w-xs md:max-w-full">
-          Problems trying to resolve the conflict between
-        </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-4 md:gap-x-4 md:px-72 mb-16">
         <ProductCard />

@@ -197,10 +197,12 @@ const HeaderLogin = () => {
           </div>
         )}
       </div>
+      {/* 
       <a href="#" className="hidden md:flex items-center md:text-[#23A6F0]">
         <FontAwesomeIcon icon={farHeart} size="sm" />
         <span className="ml-1 text-xs">1</span>
-      </a>
+      </a> 
+      */}
     </div>
   );
 };
