@@ -61,7 +61,7 @@ const Header = () => {
       {menuOpen && (
         <div
           ref={menuRef}
-          className="md:hidden absolute top-12 pb-6 left-0 w-full bg-white z-10"
+          className="md:hidden absolute top-16 pb-6 left-0 w-full bg-white z-10 h-50"
         >
           <HeaderMenuItems closeMenu={() => setMenuOpen(false)} />
         </div>

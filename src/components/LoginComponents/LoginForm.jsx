@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogin } from "../../store/thunks/authThunks";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 const LoginForm = () => {
   const history = useHistory();
+  const location = useLocation();
   const {
     register,
     handleSubmit,
@@ -26,13 +27,19 @@ const LoginForm = () => {
     }
   };
 
-  if (!loading) {
-    if (rememberMe && user?.token) {
-      localStorage.setItem("token", JSON.stringify(user?.token));
-      if (history.length > 1) history.goBack();
-      else history.push("/");
+  useEffect(() => {
+    if (!loading && user?.token) {
+      if (rememberMe) {
+        localStorage.setItem("token", JSON.stringify(user?.token));
+      }
+      // Eğer `location.state` varsa oraya geri dön, yoksa ana sayfaya git
+      if (location.state?.from) {
+        history.replace(location.state.from);
+      } else {
+        history.push("/");
+      }
     }
-  }
+  }, [loading, user, rememberMe, history, location.state]);
 
   return (
     <form
