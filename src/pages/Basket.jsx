@@ -33,7 +33,7 @@ const Basket = () => {
     .reduce((total, item) => total + item.product.price * item.count, 0);
 
   return (
-    <div className="md:mx-36 md:mt-10 mt-44 flex flex-col md:flex-row md:justify-between md:gap-8">
+    <div className="md:mx-36 md:mt-10 mt-10 mx-2 flex flex-col md:flex-row md:justify-between md:gap-8">
       <div className="w-full lg:w-2/3">
         <h1 className="text-3xl font-semibold mb-6">
           Sepetim ({cart.length} Ürün)
