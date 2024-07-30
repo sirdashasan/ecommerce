@@ -12,10 +12,6 @@ const PracticeSection = () => {
         <h2 className="my-4 p-4 md:p-0 mx-28 md:mx-0 text-3xl font-bold">
           Fashion Tips
         </h2>
-        <p className="mx-28 md:mx-0 text-sm text-[#737373] font-semibold">
-          Problems trying to resolve the conflict between the two major realms
-          of Classical physics: Newtonian mechanics
-        </p>
       </div>
 
       <div className="md:flex md:justify-center md:items-center md:flex-wrap md:gap-1">

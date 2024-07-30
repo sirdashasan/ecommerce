@@ -56,11 +56,13 @@ const HeaderLogin = () => {
 
   const handleBasketRedirect = (event) => {
     event.stopPropagation();
+    dispatch(setShowCart(false));
     history.push("/basket");
   };
 
   const handleOrderRedirect = (event) => {
     event.stopPropagation();
+    dispatch(setShowCart(false));
     history.push("/order");
   };
 
@@ -144,7 +146,7 @@ const HeaderLogin = () => {
           onClick={toggleCart}
         >
           <FontAwesomeIcon icon={faShoppingCart} size="sm" />
-          <span className="hidden md:inline ml-1 text-xs">{cartItemCount}</span>
+          <span className=" ml-1 text-xs">{cartItemCount}</span>
         </a>
         {showCart && (
           <div

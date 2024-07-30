@@ -14,6 +14,7 @@ const ProductDetailButtons = ({ product }) => {
   const handleAddToCart = () => {
     dispatch(addToCart(product));
     dispatch(setShowCart(true));
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

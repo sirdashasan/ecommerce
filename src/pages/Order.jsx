@@ -121,7 +121,7 @@ const Order = () => {
 
   return (
     <div className="flex flex-col md:flex-row md:justify-between md:mx-16">
-      <div className=" p-4">
+      <div className="p-4">
         <div className="border-b mb-4">
           <button
             className={`p-2 ${
@@ -148,9 +148,9 @@ const Order = () => {
                 <div key={address.id} className="relative"></div>
               ))}
             </div>
-            <div className="md:flex md:flex-col md:gap-5">
+            <div className="flex flex-col gap-4">
               <button
-                className="bg-gray-100 text-gray-700 py-8 px-64 rounded-lg font-semibold text-sm w-64"
+                className="bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-semibold text-sm"
                 onClick={() => {
                   setFormData({
                     id: null,
@@ -170,39 +170,38 @@ const Order = () => {
                 + Yeni Adres Ekle
               </button>
               {addresses.map((address) => (
-                <button
+                <div
                   key={address.id}
-                  className={`bg-gray-100 text-gray-700 py-16 px-64 rounded-lg font-semibold text-sm w-64 relative ${
+                  className={`bg-gray-100 text-gray-700 p-4 rounded-lg font-semibold text-sm relative ${
                     selectedAddressId === address.id
                       ? "border-2 border-[#23A6F0]"
                       : ""
                   }`}
-                  onClick={() => handleSelectAddress(address.id)}
                 >
-                  <div className="absolute top-4 left-0 text-left pl-8">
-                    {selectedAddressId === address.id && (
-                      <div className="absolute top-1 left-2 h-4 w-4 bg-[#23A6F0] rounded-full border-4 border-gray"></div>
-                    )}
-                    <p className="font-semibold">{address.title}</p>
-                    <p className="text-left mt-4">
-                      {address.name} {address.surname}
-                    </p>
-                    <p className="text-left">{address.address}</p>
-                    <p className="text-left">{address.phone}</p>
-                  </div>
-                  <button
-                    className="absolute top-0 right-0 text-red-500 md:px-4 md:pt-4"
+                  <div
+                    className="absolute top-4 right-4 text-red-500 cursor-pointer"
                     onClick={() => handleDelete(address.id)}
                   >
                     Sil
-                  </button>
-                  <button
-                    className="absolute top-0 right-0 text-blue-500 md:px-4 md:pt-4 md:mr-8"
+                  </div>
+                  <div
+                    className="absolute top-4 right-16 text-blue-500 cursor-pointer"
                     onClick={() => openEditModal(address)}
                   >
                     Düzenle
-                  </button>
-                </button>
+                  </div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => handleSelectAddress(address.id)}
+                  >
+                    <p className="font-semibold">{address.title}</p>
+                    <p className="mt-2">
+                      {address.name} {address.surname}
+                    </p>
+                    <p>{address.address}</p>
+                    <p>{address.phone}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -210,10 +209,9 @@ const Order = () => {
         {activeTab === "payment" && (
           <div>
             <h2 className="text-xl font-semibold mb-4">Kart ile Öde</h2>
-
-            <div className="mb-4 md:flex md:flex-col md:gap-5">
+            <div className="flex flex-col gap-4">
               <button
-                className="bg-gray-100 text-gray-700 py-8 px-64 rounded-lg font-semibold text-sm w-64"
+                className="bg-gray-100 text-gray-700 py-2 px-4 rounded-lg font-semibold text-sm"
                 onClick={() => {
                   setPaymentData({
                     id: null,
@@ -229,47 +227,46 @@ const Order = () => {
                 + Yeni Kart Ekle
               </button>
               {payments.map((payment) => (
-                <button
+                <div
                   key={payment.id}
-                  className={`bg-gray-100 text-gray-700 py-16 px-64 rounded-lg font-semibold text-sm w-64 relative ${
+                  className={`bg-gray-100 text-gray-700 p-4 rounded-lg font-semibold text-sm relative ${
                     selectedPaymentId === payment.id
                       ? "border-2 border-[#23A6F0]"
                       : ""
                   }`}
-                  onClick={() => handleSelectPayment(payment.id)}
                 >
-                  <div className="absolute top-4 left-0 text-left pl-8">
-                    {selectedPaymentId === payment.id && (
-                      <div className="absolute top-1 left-2 h-4 w-4 bg-[#23A6F0] rounded-full border-4 border-gray"></div>
-                    )}
-                    <p className="font-semibold">{payment.name_on_card}</p>
-                    <p className="text-left mt-4">
-                      Kart Numarası: **** **** **** {payment.card_no.slice(-4)}
-                    </p>
-                    <p className="text-left">
-                      Son Kullanma Tarihi: {payment.expire_month}/
-                      {payment.expire_year}
-                    </p>
-                  </div>
-                  <button
-                    className="absolute top-0 right-0 text-red-500 md:px-4 md:pt-4"
+                  <div
+                    className="absolute top-4 right-4 text-red-500 cursor-pointer"
                     onClick={(e) => {
                       e.stopPropagation();
                       handlePaymentDelete(payment.id);
                     }}
                   >
                     Sil
-                  </button>
-                  <button
-                    className="absolute top-0 right-0 text-blue-500 md:px-4 md:pt-4 md:mr-8"
+                  </div>
+                  <div
+                    className="absolute top-4 right-16 text-blue-500 cursor-pointer"
                     onClick={(e) => {
                       e.stopPropagation();
                       openPaymentEditModal(payment);
                     }}
                   >
                     Düzenle
-                  </button>
-                </button>
+                  </div>
+                  <div
+                    className="cursor-pointer"
+                    onClick={() => handleSelectPayment(payment.id)}
+                  >
+                    <p className="font-semibold">{payment.name_on_card}</p>
+                    <p className="mt-2">
+                      Kart Numarası: **** **** **** {payment.card_no.slice(-4)}
+                    </p>
+                    <p>
+                      Son Kullanma Tarihi: {payment.expire_month}/
+                      {payment.expire_year}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
