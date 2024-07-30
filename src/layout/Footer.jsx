@@ -7,15 +7,15 @@ import FooterBottomText from "../components/FooterComponents/FooterBottomText";
 
 const Footer = () => {
   return (
-    <div className="mt-16">
+    <div className="mt-16 md:mx-14">
       <div>
-        <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center md:ml-28 md:mr-48 md:mb-8">
+        <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center md:ml-28 md:mr-28 md:mb-8">
           <FooterTitle />
           <FooterLogos />
         </div>
         <div className="flex flex-col items-center md:flex-row md:ml-28 md:mb-8">
           <FooterMenuItems />
-          <div className="md:ml-14">
+          <div className="md:ml-8">
             <FooterEmail />
           </div>
         </div>

@@ -18,8 +18,8 @@ const FooterEmail = () => {
             Subscribe
           </button>
         </form>
-        <p className="font-base text-sm text-[#737373]">
-          Lore imp sum dolor Amit
+        <p className="font-base text-sm text-[#737373] font-normal">
+          Write to us now
         </p>
       </div>
     </div>
