@@ -5,7 +5,7 @@ import ContactVisit from "../components/ContactComponents/ContactVisit";
 const Contact = () => {
   return (
     <div>
-      <div className="mt-64 md:mt-0 md:mx-12">
+      <div className="mt-6 md:mt-0 md:mx-12">
         <ContactUs />
         <ContactVisit />
       </div>

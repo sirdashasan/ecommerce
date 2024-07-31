@@ -8,7 +8,7 @@ const Team = () => {
       <div>
         <TeamText />
       </div>
-      <div className="mt-12">
+      <div>
         <TeamPersonCard />
       </div>
     </div>

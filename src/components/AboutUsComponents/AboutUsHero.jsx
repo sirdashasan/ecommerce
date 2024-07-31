@@ -3,7 +3,7 @@ import React from "react";
 const AboutUsHero = () => {
   return (
     <div className="md:flex md:flex-row md:items-center md:justify-around">
-      <div className="mt-64 md:mt-8 font-sans font-bold flex flex-col text-center md:text-start">
+      <div className="mt-6 md:mt-8 font-sans font-bold flex flex-col text-center md:text-start">
         <h2 className="text-3xl md:text-5xl text-[#252B42]">ABOUT US</h2>
         <p className="mt-6 text-sm text-[#737373]">
           We know how large <br className="md:hidden" />
