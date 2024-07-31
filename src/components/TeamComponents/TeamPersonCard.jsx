@@ -5,22 +5,22 @@ const TeamPersonCard = () => {
     {
       name: "Erhan Fırat",
       title: "Software Consultant",
-      img: "https://media.licdn.com/dms/image/D4D03AQHHikjSDQq9xw/profile-displayphoto-shrink_800_800/0/1708951317641?e=1720051200&v=beta&t=rerI4IakEFrJmiHVx6AWgjZsdUaNYbujGVbeMHTOWzA",
+      img: "https://media.licdn.com/dms/image/D4D03AQHHikjSDQq9xw/profile-displayphoto-shrink_800_800/0/1708951317641?e=1727913600&v=beta&t=WB5X5gUXI_RiigPTNUwcALynsEXbBcPD5ecwrfF5pcQ",
     },
     {
       name: "Gökhan Özdemir",
       title: "Developer / PM",
-      img: "https://media.licdn.com/dms/image/C4D03AQE8uHbxXDXfmw/profile-displayphoto-shrink_800_800/0/1635783306921?e=1720051200&v=beta&t=w060HP238w-3WSIwE7hT4n-zKVbltmFpGClbX0-DNLM",
+      img: "https://media.licdn.com/dms/image/C4D03AQE8uHbxXDXfmw/profile-displayphoto-shrink_800_800/0/1635783306921?e=1727913600&v=beta&t=MwLdEyFitieAlE7yPOn1oC0t5pnpei5622vrJky6eLY",
     },
     {
       name: "Hasan Sırdaş",
       title: "Full Stack Dev.",
-      img: "https://media.licdn.com/dms/image/D4D03AQH3SuVX0xKCgw/profile-displayphoto-shrink_800_800/0/1700637350197?e=1720051200&v=beta&t=nrqQdUREqqHlgIY0EZbhl2zE1EgFS5dyeGWWsadWejY",
+      img: "https://media.licdn.com/dms/image/D4D03AQF6fDqxHipeGQ/profile-displayphoto-shrink_800_800/0/1720524060127?e=1727913600&v=beta&t=axYU39nf7-p7jEI-fPedxd6vJTlRgKbqwOiO5t9tkBw",
     },
     {
       name: "Taylan Can Köse",
       title: "Full Stack Dev.",
-      img: "https://media.licdn.com/dms/image/D4D03AQGyK8cumwgvFQ/profile-displayphoto-shrink_800_800/0/1713527182328?e=1720051200&v=beta&t=PXKZY2tt0SjKepMtPGmWnNT0rTv1VD5x4XRPOjS8C1A",
+      img: "https://media.licdn.com/dms/image/D4D03AQGyK8cumwgvFQ/profile-displayphoto-shrink_800_800/0/1713527182328?e=1727913600&v=beta&t=b6jhqWDpsprp68wDAZoTIgOvL-JMcHhlLuVkLWkTCzs",
     },
   ];
 

@@ -1,9 +1,10 @@
 import React from "react";
+import PracticeSection from "../components/HomeComponents/PracticeAdvice/PracticeSection";
 
 const Blog = () => {
   return (
     <div>
-      <p>Blog</p>
+      <PracticeSection />
     </div>
   );
 };
